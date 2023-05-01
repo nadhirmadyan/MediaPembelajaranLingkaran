@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon">
+  <title>Halaman Guru</title>
+  <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/Asset/CSS/style-teacher.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body id="body-pd" class="body-pd">
+
+  <!-- <header class="header body-pd" id="header"> -->
+  <!-- <div class="header_toggle"> -->
+  <!-- <i class="fa-solid fa-bars" id="header-toggle"></i> -->
+  <!-- <i class='bx bx-menu' ></i>  -->
+  <!-- </div> -->
+  <!-- <div class="header_img"> 
+      <img src="https://i.imgur.com/hczKIze.jpg" alt=""> 
+    </div> -->
+  <!-- </header> -->
+  <div class="l-navbar show" id="nav-bar">
+    <nav id="nav">
+
+    </nav>
+  </div>
+  <!--Container Main start-->
+  <div class="height-100">
+    <div class="mb-3 col-lg-5">
+      <label for="kkm">Input KKM</label>
+      <input type="text" id="kkm" class="form-control">
+    </div>
+    <button class="btn btn-primary" id="simpan">Simpan</button>
+    <button class="btn btn-primary" id="edit">Simpan</button>
+  </div>
+
+  <script src="/Asset/Bootstrap/js/bootstrap.bundle.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="/Asset/JS/script-teacher.js"></script>
+  <script src="/Guru/components/sidebar.js"></script>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyCQR3YYkVcbF_dL7g7boHNzhVmOLsLMEjo",
+    authDomain: "media-pembelajaran-lingkaran.firebaseapp.com",
+    projectId: "media-pembelajaran-lingkaran",
+    storageBucket: "media-pembelajaran-lingkaran.appspot.com",
+    messagingSenderId: "380885591249",
+    appId: "1:380885591249:web:3926634295d0f34a5fd1f0"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    import { getFirestore, doc, collection, getDocs,  query, where, addDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+
+    const db = getFirestore(app);
+
+    const inputkkm = document.getElementById("kkm");
+    const simpan = document.getElementById("simpan");
+    const edit = document.getElementById("edit");
+
+    async function getData () {
+      let kkm = null;
+      let idDoc = null;
+      const q = query(collection(db, "tb-kkm"), where("idData", "==", 1));
+
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        kkm = doc.data().kkm;
+        idDoc = doc.id;
+      });
+      return [kkm, idDoc];
+    }
+
+    const kkm = await getData();
+    inputkkm.value = kkm[0]
+
+    if (inputkkm.value === "") {
+      edit.style.display = "none"
+    } else {
+      simpan.style.display = "none"
+    }
+
+    simpan.addEventListener("click", function () {
+      addData();
+      alert("Berhasil Disimpan");
+    });
+
+    edit.addEventListener("click", function () {
+      updateData();
+      alert("Berhasil Disimpan Ubah");
+    })
+
+    // Add Data
+    async function addData() {
+      try {
+        const docRef = await addDoc(collection(db, "tb-kkm"), {
+          idData: 1,
+          kkm: parseInt(inputkkm.value),
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    }
+
+    // Update Data
+    async function updateData() {
+      const dataKKM = doc(db, "tb-kkm", kkm[1]);
+      await updateDoc(dataKKM, {
+        kkm: inputkkm.value
+      });
+    }
+
+    if (!sessionStorage.getItem('user')) {
+      sessionStorage.removeItem('user');
+      sessionStorage.removeItem('pass');
+      window.location = '../';
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon">
+
+    <!-- Memanggil Bootstrap CSS -->
+    <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- Memanggil CSS -->
+    <link rel="stylesheet" href="/Asset/CSS/Course.css">
+
+    <title>Juring Lingkaran</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" id="nav">
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-bottom"></nav>
+
+    <!-- Membuat Breadcrumb -->
+    <nav aria-label="breadcrumb" class="breadcrumb-header">
+        <ol class="breadcrumb container">
+            <li class="breadcrumb-item">Unsur – Unsur Lingkaran</li>
+            <li class="breadcrumb-item active" style="font-weight: bold;">Juring</li>
+        </ol>
+    </nav>
+    <!-- End Breadcrumb -->
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-lg-3 col-sm-12">
+                <div class="list-course">
+
+                </div>
+            </div>
+
+            <div class="col-lg-9 col-sm-12">
+                <div class="card card-body">
+                    <!-- Start Course -->
+                    <h2>Juring</h2>
+                    <hr>
+                    <p>
+                        Juring adalah daerah di dalam lingkaran yang dibatasi oleh dua buah jari – jari dan sebuah
+                        busur. Jari – jari ini membagi lingkaran menjadi dua buah juring, yaitu juring kecil
+                        (<i>minor</i>) dan juring besar (<i>mayor</i>). Pada Gambar 12, juring lingkaran ditujukan oleh
+                        daerah <span style="font-size: 0.8em;">$\widehat{ABC}$</span> (daerah yang dibatasi oleh jari –
+                        jari
+                        <span style="font-size: 0.8em;">$\overline{AB}$, $\overline{BC}$</span>, dan busur <span
+                            style="font-size: 0.8em;">$\widehat{BC}$</span> )
+                    </p>
+
+                    <div class="ratio ratio-16x9">
+                        <iframe scrolling="no" title="Lingkaran (Juring)"
+                            src="https://www.geogebra.org/material/iframe/id/tckhpmb6/width/800/height/450/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+                            width="800px" height="450px" style="border:0px;" allowfullscreen> </iframe>
+                    </div>
+
+                    <div class="row justify-content-center text-center my-3">
+                        <div class="col-md-6 col-sm-12">
+                            <span class="src-text">Gambar 12 juring lingkaran</span>
+                        </div>
+                    </div>
+
+                    <!-- End Course -->
+                    <hr>
+                    <div class="row web">
+                        <div class="col-lg-6 col-sm-12">
+                            <a href="/Pages/Materi-1/8.Tembereng/index.html" class="btn btn-sm btn-outline-dark"
+                                id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 text-end">
+                            <a href="/Pages/Materi-1/10.Latihan/index.html" class="btn btn-sm btn-dark next"
+                                id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="responsive">
+                        <div class="d-grid gap-2">
+                            <a href="/Pages/Materi-1/8.Tembereng/index.html" class="btn btn-sm btn-outline-dark"
+                                id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
+                            <a href="/Pages/Materi-1/10.Latihan/index.html" class="btn btn-sm btn-dark next"
+                                id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Content -->
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="container">
+            <p class="text-center">&copy; 2023 Media Pembelajaran Lingkaran</p>
+        </div>
+    </section>
+
+    <!-- Memanggil file Component JS -->
+    <script src="/components/navbar.js"></script>
+    <script src="/components/list-course.js"></script>
+    <script src="/components/list-course-responsive.js"></script>
+
+    <!-- Mathjax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <!-- Memanggil Bootstrap JS -->
+    <script src="/Asset/Bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/components/open-course.js"></script>
+    <script type="text/javascript">
+        const next = document.querySelectorAll(".next");
+
+        next.forEach((value, index) => {
+            next[index].addEventListener("click", function (e) {
+                e.preventDefault();
+                localStorage.setItem('sub-1-9', '1');
+                location.href = `${next[index].getAttribute('href')}`;
+            });
+        });
+    </script>
+</body>
+
+</html>

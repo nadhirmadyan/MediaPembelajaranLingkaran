@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon">
+
+    <!-- Memanggil Bootstrap CSS -->
+    <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- Memanggil CSS -->
+    <link rel="stylesheet" href="/Asset/CSS/Course.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.css">
+
+    <title>Evaluasi</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="card my-5 text-center h-100">
+            <div class="card-body">
+                <h4 id="nama"></h4>
+                <p>Jawaban benar: <span id="correct"></span>, Jawaban Salah: <span id="wrong"></span></p>
+                <h1>Nilai Anda</h1>
+                <h1 class="score"></h1>
+                <h4 class="message"></h4>
+                <hr>
+                <a href="./" class="btn btn-md btn-info text-white retry">Kerjakan Ulang</a>
+                <a href="/Pages/Materi-1/0/" class="btn btn-md btn-danger text-white" id="next">Kembali Ke Materi</a>
+            </div>
+        </div>
+    </div>
+    <!-- End Content -->
+
+
+    <!-- Memanggil Bootstrap JS -->
+    <script src="/Asset/Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Memanggil file Component JS -->
+    <script src="/components/navbar.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.js"></script>
+    <script type="module">
+        const length = sessionStorage.getItem('length-4');
+    const correct = sessionStorage.getItem('correct-4');
+    const wrong = sessionStorage.getItem('wrong-4');
+    const nama = sessionStorage.getItem('nama');
+    const kelas = sessionStorage.getItem('kelas');
+
+    let score = (correct / length) * 100;
+
+    document.querySelector(".score").innerHTML = Math.ceil(score);
+    document.querySelector("#correct").innerHTML = correct;
+    document.querySelector("#wrong").innerHTML = wrong;
+    document.querySelector("#nama").innerHTML = nama;
+
+    const message = document.querySelector(".message");
+    const next = document.querySelector("#next");
+
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+      apiKey: "AIzaSyCQR3YYkVcbF_dL7g7boHNzhVmOLsLMEjo",
+      authDomain: "media-pembelajaran-lingkaran.firebaseapp.com",
+      projectId: "media-pembelajaran-lingkaran",
+      storageBucket: "media-pembelajaran-lingkaran.appspot.com",
+      messagingSenderId: "380885591249",
+      appId: "1:380885591249:web:3926634295d0f34a5fd1f0"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      import { getFirestore, collection, getDocs, addDoc, query, where } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+
+      const db = getFirestore(app);
+      const d = new Date();
+      const date = `${d.getDate()}-${d.getMonth()+1}-${d.getFullYear()}`;
+
+      // Add Data
+      async function addData() {
+        try {
+          const docRef = await addDoc(collection(db, "kuis-4"), {
+            nama: nama,
+            kelas: kelas,
+            nilai: score,
+            tanggal: date
+          });
+          console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+          console.error("Error adding document: ", e);
+        }
+      }
+
+      // Get KKM
+      async function getData () {
+        let kkm = null;
+        const q = query(collection(db, "tb-kkm"), where("idData", "==", 1));
+
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          kkm = doc.data().kkm;
+        });
+        return kkm;
+      }
+
+      const kkm = await getData();
+
+      function removeStorage() {
+        sessionStorage.removeItem('length-4');
+        sessionStorage.removeItem('correct-4');
+        sessionStorage.removeItem('wrong-4');
+        sessionStorage.removeItem('nama');
+        sessionStorage.removeItem('kelas');
+        sessionStorage.removeItem('timer-4');
+        sessionStorage.removeItem('jawaban-4');
+      }
+
+      if (!sessionStorage.getItem('nama')) {
+        removeStorage();
+        window.location = './';
+      } else {
+        if (score < kkm) {
+          next.classList.add("disabled");
+          addData();
+          message.innerText = `Maaf anda belum lulus, nilai minimal yang harus anda dapatkan ${kkm}. Silahkan kerjakan ulang.`;
+        } else {
+          addData();
+          next.classList.remove("disabled");
+          message.innerText = `Selamat anda anda lulus. Silahkan lanjut kemateri berikutnya.`;
+        }
+      }
+
+      const retry = document.querySelector(".retry");
+      retry.addEventListener("click", (e) => {
+        e.preventDefault();
+        removeStorage();
+        window.location = './';
+      });
+
+      next.addEventListener("click", (e) => {
+        e.preventDefault();
+        removeStorage();
+        const href = next.getAttribute('href');
+        window.location = href;
+      });
+  </script>
+</body>
+
+</html>

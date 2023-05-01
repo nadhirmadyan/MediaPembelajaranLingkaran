@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon">
+  <title>Halaman Guru</title>
+  <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/Asset/CSS/style-teacher.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+</head>
+
+<body id="body-pd" class="body-pd">
+
+  <!-- <header class="header body-pd" id="header"> -->
+  <!-- <div class="header_toggle"> -->
+  <!-- <i class="fa-solid fa-bars" id="header-toggle"></i> -->
+  <!-- <i class='bx bx-menu' ></i>  -->
+  <!-- </div> -->
+  <!-- <div class="header_img"> 
+      <img src="https://i.imgur.com/hczKIze.jpg" alt=""> 
+    </div> -->
+  <!-- </header> -->
+  <div class="l-navbar show" id="nav-bar">
+    <nav id="nav">
+
+    </nav>
+  </div>
+  <!--Container Main start-->
+  <div class="height-100">
+    <h4>Daftar Nilai</h4>
+
+    <div class="content">
+      <div class="content-button my-3">
+        <button class="btn btn-primary" id="c1">Kuis 1</button>
+        <button class="btn btn-primary" id="c2">Kuis 2</button>
+        <button class="btn btn-primary" id="c3">Kuis 3</button>
+        <button class="btn btn-primary" id="c4">Evaluasi</button>
+      </div>
+      <div class="tabcontent" id="content1">
+        <h3>Kuis 1</h3>
+        <button id="btnExport" class="btn btn-sm btn-success mb-4" onclick="exportReportToExcel1('xlsx')">Export
+          Excel</button>
+        <table class="table table-striped" id="table-1">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Kelas</th>
+              <th>Nilai</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody id="kuis-1">
+
+          </tbody>
+        </table>
+      </div>
+      <div class="tabcontent" id="content2">
+        <h3>Kuis 2</h3>
+        <button id="btnExport" class="btn btn-sm btn-success mb-4" onclick="exportReportToExcel2('xlsx')">Export
+          Excel</button>
+        <table class="table table-striped" id="table-2">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Kelas</th>
+              <th>Nilai</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody id="kuis-2">
+
+          </tbody>
+        </table>
+      </div>
+      <div class="tabcontent" id="content3">
+        <h3>Kuis 3</h3>
+        <button id="btnExport" class="btn btn-sm btn-success mb-4" onclick="exportReportToExcel3('xlsx')">Export
+          Excel</button>
+        <table class="table table-striped" id="table-3">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Kelas</th>
+              <th>Nilai</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody id="kuis-3">
+
+          </tbody>
+        </table>
+      </div>
+      <div class="tabcontent" id="content4">
+        <h3>Evaluasi</h3>
+        <button id="btnExport" class="btn btn-sm btn-success mb-4" onclick="exportReportToExcel4('xlsx')">Export
+          Excel</button>
+        <table class="table table-striped" id="table-4">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Kelas</th>
+              <th>Nilai</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody id="latihan">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  <script src="/Asset/Bootstrap/js/bootstrap.bundle.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="/Asset/JS/script-teacher.js"></script>
+  <script src="/Guru/components/sidebar.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js">
+  </script>
+
+  <script type="module">
+    const kuisSatu = document.querySelector("#kuis-1");
+    const kuisDua = document.querySelector("#kuis-2");
+    const kuisTiga = document.querySelector("#kuis-3");
+    const latihan = document.querySelector("#latihan");
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+      apiKey: "AIzaSyCQR3YYkVcbF_dL7g7boHNzhVmOLsLMEjo",
+      authDomain: "media-pembelajaran-lingkaran.firebaseapp.com",
+      projectId: "media-pembelajaran-lingkaran",
+      storageBucket: "media-pembelajaran-lingkaran.appspot.com",
+      messagingSenderId: "380885591249",
+      appId: "1:380885591249:web:3926634295d0f34a5fd1f0"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+    import { getFirestore, doc, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+
+    const db = getFirestore(app);
+
+    async function getKkm () {
+      let kkm = null;
+      const q = query(collection(db, "tb-kkm"), where("idData", "==", 1));
+
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        // console.log(doc.id, " => ", doc.data());
+        kkm = doc.data().kkm;
+      });
+      return kkm;
+    }
+
+    const kkm = await getKkm();
+
+    async function getKuis(data, temp, table) {
+
+      const querySnapshot = await getDocs(collection(db, data));
+      let i = 1;
+      querySnapshot.forEach((doc) => {
+        let ket = doc.data().nilai >= kkm ? 'Lulus' : 'Tidak Lulus';
+        let tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${i++}</td>
+          <td>${doc.data().nama}</td>
+          <td>${doc.data().kelas}</td>
+          <td>${doc.data().nilai}</td>
+          <td>${ket}</td>
+        `;
+        temp.appendChild(tr);
+      });
+
+      $(document).ready( function () {
+        $(`#${table}`).DataTable();
+      });
+    }
+
+    // Call function
+    getKuis('kuis-1', kuisSatu, 'table-1');
+    getKuis('kuis-2', kuisDua, 'table-2');
+    getKuis('kuis-3', kuisTiga, 'table-3');
+    getKuis('kuis-4', latihan, 'table-4');
+
+    // Tabs
+    const c1 = document.querySelector("#c1");
+    const c2 = document.querySelector("#c2");
+    const c3 = document.querySelector("#c3");
+    const c4 = document.querySelector("#c4");
+    const content1 = document.querySelector("#content1");
+    const content2 = document.querySelector("#content2");
+    const content3 = document.querySelector("#content3");
+    const content4 = document.querySelector("#content4");
+    const tabContent = document.querySelectorAll(".tabcontent");
+    
+    content2.style.display = "none";
+    content3.style.display = "none";
+    content4.style.display = "none";
+
+    c1.addEventListener("click", () => {
+      content2.style.display = "none";
+      content3.style.display = "none";
+      content4.style.display = "none";
+      content1.style.display = "block";
+    });
+
+    c2.addEventListener("click", () => {
+      content1.style.display = "none";
+      content4.style.display = "none";
+      content3.style.display = "none";
+      content2.style.display = "block";
+    });
+
+    c3.addEventListener("click", () => {
+      content1.style.display = "none";
+      content2.style.display = "none";
+      content4.style.display = "none";
+      content3.style.display = "block";
+    });
+
+    c4.addEventListener("click", () => {
+      content1.style.display = "none";
+      content2.style.display = "none";
+      content4.style.display = "block";
+      content3.style.display = "none";
+    });
+
+    if (!sessionStorage.getItem('user')) {
+      sessionStorage.removeItem('user');
+      sessionStorage.removeItem('pass');
+      window.location = '../';
+    }
+  </script>
+  <script type="text/javascript">
+    function exportReportToExcel1(type, fn, dl) {
+      var elt = document.getElementById('table-1');
+      var wb = XLSX.utils.table_to_book(elt, {
+        sheet: "sheet1"
+      });
+      return dl ?
+        XLSX.write(wb, {
+          bookType: type,
+          bookSST: true,
+          type: 'base64'
+        }) :
+        XLSX.writeFile(wb, fn || ('Kuis-1.' + (type || 'xlsx')));
+    }
+
+    function exportReportToExcel2(type, fn, dl) {
+      var elt = document.getElementById('table-2');
+      var wb = XLSX.utils.table_to_book(elt, {
+        sheet: "sheet1"
+      });
+      return dl ?
+        XLSX.write(wb, {
+          bookType: type,
+          bookSST: true,
+          type: 'base64'
+        }) :
+        XLSX.writeFile(wb, fn || ('Kuis-2.' + (type || 'xlsx')));
+    }
+
+    function exportReportToExcel3(type, fn, dl) {
+      var elt = document.getElementById('table-3');
+      var wb = XLSX.utils.table_to_book(elt, {
+        sheet: "sheet1"
+      });
+      return dl ?
+        XLSX.write(wb, {
+          bookType: type,
+          bookSST: true,
+          type: 'base64'
+        }) :
+        XLSX.writeFile(wb, fn || ('latihan.' + (type || 'xlsx')));
+    }
+  </script>
+</body>
+
+</html>

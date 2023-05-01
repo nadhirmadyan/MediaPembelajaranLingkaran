@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon">
+
+    <!-- Memanggil Bootstrap CSS -->
+    <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- Memanggil CSS -->
+    <link rel="stylesheet" href="/Asset/CSS/Course.css">
+
+    <title>Kuis 3</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav"></nav>
+
+    <!-- Navbar Bottom -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-bottom"></nav>
+
+    <!-- Membuat Breadcrumb -->
+    <nav aria-label="breadcrumb" class="breadcrumb-header">
+        <ol class="breadcrumb container">
+            <li class="breadcrumb-item">Luas Lingkaran</li>
+            <li class="breadcrumb-item active" style="font-weight: bold;">Kuis 3</li>
+        </ol>
+    </nav>
+    <!-- End Breadcrumb -->
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-lg-3 col-sm-12">
+                <div class="list-course">
+
+                </div>
+            </div>
+
+            <div class="col-lg-9 col-sm-12">
+                <div class="card card-body">
+                    <!-- Start Course -->
+                    <h1>Kuis 3</h1>
+                    <hr>
+                    <h5>Petunjuk</h5>
+
+                    <div class="List">
+                        <ol>
+                            <li>
+                                Kuis ini terdiri dari 10 soal pilhan ganda.
+                            </li>
+                            <li>
+                                Setiap soal memiliki bobot poin sebanyak 10 poin.
+                            </li>
+                            <li>
+                                Silahkan lengkapi data diri Anda pada form yang telah disediakan.
+                            </li>
+                            <li>
+                                Tekan "Mulai" jika Anda sudah melengkapi data diri.
+                            </li>
+                            <li>
+                                Tekan salah satu pilihan jawaban yang benar.
+                            </li>
+                            <li>
+                                Setelah semua pertanyaan selesai dijawab, tekan tombol "Selesai" dan laman hasil akan
+                                muncul.
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <div class="mb-3">
+                            <label for="nama" class="form-label">Nama</label>
+                            <input type="text" id="nama" placeholder="Nama Lengkap" class="form-control"
+                                autocomplete="off" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="nama" class="form-label">Kelas</label>
+                            <select id="kelas" class="form-select">
+                                <option value="">Pilih Kelas</option>
+                                <option value="6 A">6 A</option>
+                                <option value="6 B">6 B</option>
+                            </select>
+                        </div>
+                        <button type="button" id="start" class="btn btn-md btn-primary py-1 px-4">
+                            Mulai
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- End Content -->
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="container">
+            <p class="text-center">&copy; 2021 Media Pembelajaran Lingkaran</p>
+        </div>
+    </section>
+
+    <!-- Memanggil file Component JS -->
+    <script src="/components/navbar.js"></script>
+    <script src="/components/list-course.js"></script>
+    <script src="/components/list-course-responsive.js"></script>
+
+    <!-- Mathjax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <!-- Memanggil Bootstrap JS -->
+    <script src="/Asset/Bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/components/open-course.js"></script>
+
+    <script>
+        const nama = document.getElementById("nama");
+        const kelas = document.getElementById("kelas");
+        const start = document.getElementById("start");
+
+        start.addEventListener("click", () => {
+            if (nama.value === "" || kelas.value === "") {
+                alert("Data yang di isi belum lengkap");
+            } else {
+                var now = Date.now();
+                sessionStorage.setItem("nama", nama.value);
+                sessionStorage.setItem("kelas", kelas.value);
+                sessionStorage.setItem("timer-3", now);
+                location.href = "./quiz.html";
+            }
+        });
+    </script>
+</body>
+
+</html>

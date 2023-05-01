@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/assets/img/classroom.png" type="image/x-icon">
+  <title>Login Guru</title>
+  <link rel="stylesheet" href="/Asset/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-transparent border-bottom">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="/Asset/Image/Logo.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
+        <span>Lingkaran</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Beranda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Peta Konsep</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tentang</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+        <div class="card shadow mt-5 p-2">
+          <!-- <img src="/assets/img/online-learning.png" class="img-fluid mx-auto d-block mt-3" alt="online-learning" width="150"> -->
+          <h3 class="text-center mt-3">Login Guru</h3>
+          <div class="card-body">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" id="username" class="form-control" placeholder="Username" autocomplete="off">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" id="password" class="form-control" placeholder="Password" autocomplete="off">
+            </div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" type="button" id="login">Login</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/Asset/Bootstrap/js/bootstrap.bundle.js"></script>
+  <script>
+    const username = document.querySelector("#username");
+    const password = document.querySelector("#password");
+    const login = document.querySelector("#login");
+
+    login.addEventListener("click", () => {
+      if (username.value === "" || password === "") {
+        alert("Username dan Password wajib di isi!");
+      } else if (username.value === "guru" && password.value === "123456") {
+        sessionStorage.setItem('user', 'guru');
+        sessionStorage.setItem('pass', '123456');
+        window.location = '/Guru/pages/index.html';
+      } else {
+        alert("Username dan Password salah!");
+      }
+    });
+  </script>
+</body>
+</html>

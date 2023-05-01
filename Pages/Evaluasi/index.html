@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon">
+
+    <!-- Memanggil Bootstrap CSS -->
+    <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- Memanggil CSS -->
+    <link rel="stylesheet" href="/Asset/CSS/Course.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.css">
+
+    <title>Evaluasi</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" id="nav">
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-bottom"></nav>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-8 col-sm-12 my-3">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h4>Petunjuk Mengerjakan Soal Evaluasi</h4>
+                        <hr>
+                        <div class="course">
+                            <ol>
+                                <li>
+                                    Evaluasi ini terdiri dari 20 soal berupa pilihan ganda.
+                                </li>
+                                <li>
+                                    Setiap soal memiliki bobot poin sebanyak 5 poin.
+                                </li>
+                                <li>
+                                    Silahkan lengkapi data diri Anda pada form yang telah disediakan.
+                                </li>
+                                <li>
+                                    Tekan "Mulai" jika Anda sudah melengkapi data diri.
+                                </li>
+                                <li>
+                                    Tekan salah satu pilihan jawaban yang benar.
+                                </li>
+                                <li>
+                                    Setelah semua pertanyaan selesai dijawab, tekan tombol "Selesai" dan laman hasil
+                                    akan muncul.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 my-3">
+                <div class="card shadow h-100">
+                    <div class="card-body">
+                        <h4>Evaluasi</h4>
+                        <hr>
+                        <div class="form-group mt-3">
+                            <label for="">Nama</label>
+                            <input type="text" id="nama" class="form-control" placeholder="Masukkan Nama ....."
+                                autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Kelas</label>
+                            <select id="kelas" class="form-select">
+                                <option value="">Pilih Kelas</option>
+                                <option value="6 A">6 A</option>
+                                <option value="6 B">6 B</option>
+                            </select>
+                        </div>
+                        <div class="form-group my-2">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary" id="masuk" type="button">Mulai</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Content -->
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="container">
+            <p class="text-center">&copy; 2021 Media Pembelajaran Lingkaran</p>
+        </div>
+    </section>
+
+    <!-- Memanggil Bootstrap JS -->
+    <script src="/Asset/Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Memanggil file Component JS -->
+    <script src="/components/navbar.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const masuk = document.getElementById("masuk");
+            const nama = document.getElementById("nama");
+            const kelas = document.getElementById("kelas");
+
+            masuk.addEventListener("click", () => {
+                if (nama.value === "" && kelas.value === "") {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Nama dan Kelas tidak boleh kosong!',
+                    });
+                } else {
+                    var now = Date.now();
+                    sessionStorage.setItem('nama', nama.value);
+                    sessionStorage.setItem('kelas', kelas.value);
+                    sessionStorage.setItem("timer-4", now);
+                    location.href = './quiz.html';
+                }
+            });
+        });
+    </script>
+    <script src="/components/list-course.js"></script>
+    <script src="/components/list-course-responsive.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon" />
+
+    <!-- Memanggil Bootstrap CSS -->
+    <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- Memanggil CSS -->
+    <link rel="stylesheet" href="/Asset/CSS/Course.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.css" />
+
+    <title>Kuis 3 Lingkaran</title>
+    <style>
+        .slide {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.1s;
+        }
+
+        .active-slide {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .card {
+            position: relative;
+        }
+
+        .quiz-container {
+            position: relative;
+            height: 400px;
+            margin-top: 10px;
+        }
+
+        .question {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .answers {
+            margin-bottom: 20px;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .answers label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 720px) {
+            .quiz-container {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quiz-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="/Asset/Image/Logo.png" alt="" width="25" height="25" class="d-inline-block align-text-top" />
+                <span>Lingkaran</span>
+            </a>
+
+            <div id="time" class="badge bg-dark fw-bold" style="font-size: 1.5em">
+                00 : 00
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-lg-9 col-sm-12 my-2">
+                <div class="card h-100 shadow">
+                    <div class="card-body">
+                        <div class="quiz-container">
+                            <div id="quiz"></div>
+                        </div>
+                        <hr />
+                        <div class="btn-action text-center">
+                            <button id="back" class="btn btn-md btn-secondary shadow">
+                                Sebelumnya
+                            </button>
+                            <button id="next" class="btn btn-md btn-success shadow">
+                                Selanjutnya
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12 my-2">
+                <div class="card h-100 shadow">
+                    <div class="card-body text-center">
+                        <span class="number-btn"></span>
+                        <hr />
+                        <button id="submit" class="btn btn-md btn-danger end shadow">
+                            Selesai
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Content -->
+
+    <!-- Memanggil Bootstrap JS -->
+    <script src="/Asset/Bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.js"></script>
+    <script src="/Pages/Materi-3/4.Kuis3/soal.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"],
+                ],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script>
+        let arrayJawaban = [];
+        let arrayJawaban_urut = [];
+        let rand_q = [];
+        let rand_q_fix = [];
+
+        let randomQuestion = questions.sort((a, b) => {
+            return 0.5 - Math.random();
+        });
+
+        let soalSession = JSON.parse(sessionStorage.getItem("soalSession-3"));
+
+        if (soalSession) {
+            var sliceQuestion;
+            sliceQuestion = soalSession;
+        } else {
+            var sliceQuestion;
+            // melakukan pemotongan array batasan soal yang ingin diambil
+            sliceQuestion = randomQuestion.slice(0, 10);
+            // console.log(sliceQuestion);
+            sessionStorage.setItem(
+                "soalSession-3",
+                JSON.stringify(randomQuestion.slice(0, 10))
+            );
+        }
+
+        function buildQuiz() {
+            const output = [];
+            let currentNumber = 1;
+
+            sliceQuestion.forEach((currentQuestion, questionNumber) => {
+                const answers = [];
+
+                for (letter in currentQuestion.answers) {
+                    answers.push(
+                        `
+                    <label>
+                        <input type="radio" name="question-tiga${questionNumber}" value="${letter}" data="${currentNumber}" class="answer">
+                        <span>${letter}. ${currentQuestion.answers[letter]}<span>
+                    </label>
+                    `
+                    );
+                }
+
+                output.push(
+                    `
+                <div class="slide">
+                    <div class="question">${currentNumber}. ${
+                currentQuestion.question
+            }</div>
+                    <div class="answers">${answers.join("")}</div>
+                </div>
+                `
+                );
+
+                currentNumber++;
+                rand_q.push(currentQuestion.soal);
+            });
+            questionContainer.innerHTML = output.join("");
+        }
+
+        let numberBtn = document.querySelector(".number-btn");
+        for (i = 0; i < sliceQuestion.length; i++) {
+            let li = document.createElement("span");
+            li.innerHTML = `
+            <button style="width:40px;" id="numbBtn${i}" type="button" class="btn btn-sm btn-outline-info mx-1 mt-1 pl-1 pr-1" onclick="paginationSlide(${i})">${
+            i + 1
+        }</button>`;
+            numberBtn.appendChild(li);
+        }
+
+        function results() {
+            let correct = 0;
+            let wrong = 0;
+
+            const answerContainers = questionContainer.querySelectorAll(".answers");
+            sliceQuestion.forEach((currentQuestion, questionNumber) => {
+                const answerContainer = answerContainers[questionNumber];
+
+                const selector = `input[name=question-tiga${questionNumber}]:checked`;
+                const userAnswer = (answerContainer.querySelector(selector) || {})
+                    .value;
+
+                arrayJawaban.push(userAnswer);
+
+                if (userAnswer === currentQuestion.correctAnswer) {
+                    correct++;
+                } else {
+                    wrong++;
+                }
+
+                sessionStorage.setItem("length-3", sliceQuestion.length);
+                sessionStorage.setItem("wrong-3", wrong);
+                sessionStorage.setItem("correct-3", correct);
+                sessionStorage.removeItem("soalSession-3");
+                for (let i = 0; i < rand_q.length; i++) {
+                    for (let j = 0; j < rand_q.length; j++) {
+                        if (i == rand_q[j]) {
+                            arrayJawaban_urut.push(arrayJawaban[j]);
+                            rand_q_fix.push(rand_q[j]);
+                        }
+                    }
+                }
+                sessionStorage.setItem(
+                    "jawaban-1",
+                    JSON.stringify(arrayJawaban_urut)
+                );
+                for (i = 0; i <= 9; i++) {
+                    sessionStorage.removeItem(`question-tiga${i}`);
+                }
+                location.href = "./result.html";
+            });
+        }
+
+        function showSlide(n) {
+            document
+                .getElementById(`numbBtn${currentSlide}`)
+                .classList.remove("active");
+            document.getElementById(`numbBtn${n}`).classList.add("active");
+            slides[currentSlide].classList.remove("active-slide");
+            slides[n].classList.add("active-slide");
+
+            const answerContainers = questionContainer.querySelectorAll(".answers");
+            const answerContainer = answerContainers[currentSlide];
+
+            const selector = `input[name=question-tiga${currentSlide}]:checked`;
+            const userAnswer = (answerContainer.querySelector(selector) || {})
+                .value;
+
+            if (userAnswer !== undefined) {
+                document
+                    .getElementById(`numbBtn${currentSlide}`)
+                    .classList.remove("btn-outline-info");
+                document
+                    .getElementById(`numbBtn${currentSlide}`)
+                    .classList.add("btn-success");
+                var elements = document.querySelectorAll(
+                    `input[name='question-tiga${currentSlide}']`
+                );
+                elements.forEach((element) => {
+                    if (element.value == userAnswer) {
+                        sessionStorage.setItem(
+                            element.name,
+                            `${element.name},${element.value}`
+                        );
+                    }
+                });
+            }
+
+            currentSlide = n;
+            if (currentSlide === 0) {
+                backButton.style.display = "none";
+            } else {
+                backButton.style.display = "inline-block";
+            }
+
+            if (currentSlide === slides.length - 1) {
+                nextButton.style.display = "none";
+                submitButton.style.display = "inline-block";
+            } else {
+                nextButton.style.display = "inline-block";
+                submitButton.style.display = "none";
+            }
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function backSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function paginationSlide(n) {
+            showSlide(n);
+        }
+
+        let questionContainer = document.querySelector("#quiz");
+        let nextButton = document.querySelector("#next");
+        let backButton = document.querySelector("#back");
+        let submitButton = document.querySelector("#submit");
+
+        buildQuiz();
+
+        const slides = document.querySelectorAll(".slide");
+        let currentSlide = 0;
+
+        showSlide(currentSlide);
+        nextButton.addEventListener("click", nextSlide);
+        backButton.addEventListener("click", backSlide);
+        submitButton.addEventListener("click", results);
+
+        // Timer
+        var timer = parseInt(sessionStorage.getItem("timer-3"));
+        var end = timer + 1000 * 60 * 60;
+        var countDownDate = end;
+
+        if (!countDownDate) {
+            parent.location.href = "./index.html";
+        }
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("time").innerHTML =
+                minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+            // If the count down is over, write some text
+            // console.log(distance);
+            if (distance < 0) {
+                results();
+                localStorage.setItem("tampil", "dissappear");
+                clearInterval(x);
+                parent.location.href = "./result.html";
+            }
+        }, 1000);
+
+        if (soalSession) {
+            var sessCheckJawaban = [];
+            for (i = 0; i <= 9; i++) {
+                sessCheckJawaban[i] = sessionStorage.getItem(`question-tiga${i}`);
+                if (sessCheckJawaban[i] != null) {
+                    const splitCheck = sessCheckJawaban[i].split(",");
+                    console.log(splitCheck);
+                    var elements = document.querySelectorAll(
+                        `input[name=${splitCheck[0]}]`
+                    );
+                    elements.forEach((element) => {
+                        if (element.value == splitCheck[1]) {
+                            // console.log(element);
+                            element.checked = true;
+                            document
+                                .getElementById(`numbBtn${i}`)
+                                .classList.remove("btn-outline-info");
+                            document
+                                .getElementById(`numbBtn${i}`)
+                                .classList.add("btn-success");
+                        }
+                    });
+                } else {
+                    console.log("something went wrong");
+                }
+            }
+        }
+
+        if (!sessionStorage.getItem("nama") || !sessionStorage.getItem("kelas")) {
+            sessionStorage.removeItem("soalSession-3");
+            window.location = "./";
+        }
+    </script>
+</body>
+
+</html>

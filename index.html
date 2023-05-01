@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon">
+  <!--Memanggil bootstrap CSS-->
+  <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css">
+  <!--Memanggil CSS-->
+  <link rel="stylesheet" href="/Asset/CSS/Style.css">
+  <title>Lingkaran</title>
+</head>
+
+<body>
+  <!-- Bootstarp Membuat Bagian Navbar -->
+  <section id="nav">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="/Asset/Image/Logo.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
+          <span>Lingkaran</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/konsep.html">Peta Konsep</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">Tentang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- Banner -->
+  <section id="banner">
+    <div class="banner">
+      <!-- Bootstrap Membuat Container dan Column -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="title">Lingkaran</h1>
+            <p>Media pembelajaran untuk siswa kelas VI SD Semester Ganjil</p>
+            <a href="/Pages/Materi-1/1.Pendahuluan/index.html" class="btn btn-start shadow next">Mulai Belajar</a>
+          </div>
+
+          <div class="col-md-6">
+            <img src="/Asset/Image/Background1.png" class="banner-img img-fluid" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Membuat gelombang pada web getwaves.io -->
+    <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#fff" fill-opacity="1"
+        d="M0,128L48,144C96,160,192,192,288,213.3C384,235,480,245,576,245.3C672,245,768,235,864,208C960,181,1056,139,1152,106.7C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+      </path>
+    </svg>
+  </section>
+
+  <section id="KD">
+    <!-- Bootstrap Membuat Container dan Column -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="text-center">Kompetensi Inti</h2>
+          <ol>
+            <li>Menerima dan menjalankan ajaran agama yang dianutnya.</li>
+            <li>Menunjukkan perilaku jujur, disiplin, tanggung jawab, santun, peduli, dan percaya diri dalam
+              berinteraksi dengan keluarga, teman, dan guru</li>
+            <li>Memahami pengetahuan faktual dan konseptual dengan cara mengamati, menanya, dan mencoba berdasarkan rasa
+              ingin tahu tentang dirinya, makhluk ciptaan Tuhan dan kegiatannya, dan benda - benda yang dijumpainya di
+              rumah, di sekolah, dan tempat bermain</li>
+            <li>Menyajikan pengetahuan faktual dan konseptual dalam bahasa yang jelas, sistematis, logis dan kritis,
+              dalam karya yang estetis, dalam gerakan yang mencerminkan anak sehat, dan dalam tindakan yang mencerminkan
+              perilaku anak beriman dan berakhlak mulia</li>
+          </ol>
+          <h2 class="text-center">Kompetensi Dasar</h2>
+          <ol>
+            <li>Menjelaskan titik pusat, jari – jari, diameter, busur, tali busur, tembereng, dan juring.</li>
+            <li>Menjelaskan taksiran keliling dan luas lingkaran.</li>
+            <li>Mengindentifikasi titik pusat, jari – jari, diameter, busur, tali busur, tembereng, dan juring.</li>
+            <li>Menaksir keliling dan luas lingkaran serta menggunakannya untuk menyelesaikan masalah.</li>
+          </ol>
+        </div>
+        <div class="col-md-6">
+          <img src="/Asset/Image/Background2.png" alt="" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="footer">
+    <div class="container">
+      <p class="text-center">&copy; 2023 Media Pembelajaran Lingkaran</p>
+    </div>
+  </section>
+
+  <!--Memanggil bootstrap JS-->
+  <script src="/Asset/Bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    const next = document.querySelector(".next");
+
+    next.addEventListener("click", function (e) {
+      e.preventDefault();
+      localStorage.setItem('sub-1-0', '1');
+      location.href = `.${next.getAttribute('href')}`;
+    });
+  </script>
+</body>
+
+</html>

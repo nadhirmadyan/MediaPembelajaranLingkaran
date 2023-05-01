@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #000;
+    font-family: 'Open Sans';
+    font-weight: 700;
+}
+
+p {
+    color: #000;
+    text-align: justify;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 1.1em;
+    line-height: 1.8em !important;
+}
+
+body {
+    font-family: 'Open Sans';
+}
+
+/* Navbar */
+#nav {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+}
+
+.navbar {
+    background-image: linear-gradient(to right, #AD58B2, #C188C9);
+}
+
+.navbar-brand span {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    color: #fff;
+}
+
+.navbar-nav li a {
+    color: #fff !important;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.breadcrumb-header {
+    background-color: #F0F0F0 !important;
+    padding-left: 25px;
+    padding-top: 10px;
+    height: 50px;
+    font-size: 18px;
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #FA8B9C;
+}
+
+.breadcrumb li a:hover {
+    text-decoration: underline;
+    color: #FA8B9C;
+}
+
+.breadcrumb li {
+    color: #000 !important;
+}
+
+.accordion-button {
+    font-family: 'Open Sans';
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #000 !important;
+}
+
+.accordion-body {
+    border: 1px solid;
+    border-color: #000;
+}
+
+.list-course-child {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    text-decoration: none;
+    color: #3F3F46;
+}
+
+.list-course-child:hover {
+    text-decoration: underline;
+    color: #000;
+}
+
+.course-active {
+    font-weight: 700;
+}
+
+.List ol li{
+    line-height: 1.7em;
+}
+
+.course ol li,
+ul li {
+    font-weight: 400;
+    font-size: 1.1em;
+    line-height: 2.2em !important;
+}
+
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.card {
+    border: 2px solid;
+    border-color: #000 !important;
+}
+
+.card hr {
+    height: 2px;
+}
+
+.card .info {
+    background-color: #AE59B3;
+    color: #fff !important;
+}
+
+.card .info p {
+    color: #f5f5f5 !important;
+}
+
+span.src-text {
+    display: block;
+    font-size: 0.8em;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.input-course {
+    display: inline !important;
+    width: 150px;
+    text-align: center;
+}
+
+/* Latihan */
+.tab-content {
+    display: none;
+}
+
+.tab-content .active {
+    display: block;
+}
+
+#next,
+#back,
+.end {
+    font-size: 1em;
+    padding: 0.5em 0.7em;
+    border-radius: 2px;
+}
+
+.responsive {
+    display: none;
+}
+
+#nav{
+    display: block;
+}
+
+#nav-bottom {
+    display: none;
+}
+
+.iframe-center {
+    margin: 0 auto;
+}
+
+/* Footer */
+#footer {
+    padding: 10px 0;
+    background-image: linear-gradient(to right, #AD58B2, #C188C9);
+}
+
+#footer p {
+    color: #f5f5f5 !important;
+}
+
+@media only screen and (max-width: 990px) {
+    .list-course {
+        display: none;
+    }
+
+    .breadcrumb-header {
+        display: none;
+    }
+
+    .row .web {
+        display: none;
+    }
+
+    .responsive {
+        display: block;
+    }
+
+    #nav{
+        display: none;
+    }
+
+    #nav-bottom {
+        display: block;
+    }
+
+    span.src-text{
+        margin-top: 0px;
+    }
+}
