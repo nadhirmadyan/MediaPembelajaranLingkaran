@@ -17,10 +17,10 @@ document.querySelector("#nav").innerHTML = `
       <a class="nav-link" href="/">Beranda</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Peta Konsep</a>
+      <a class="nav-link" href="/konsep.html">Peta Konsep</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Tentang</a>
+      <a class="nav-link" href="/about.html">Tentang</a>
     </li>
   </ul>
 </div>

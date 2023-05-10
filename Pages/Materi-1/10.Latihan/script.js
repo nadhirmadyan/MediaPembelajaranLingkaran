@@ -24,10 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         answer.forEach((item, index) => {
             if (answerUser[index].value.toLowerCase() !== item) {
-                answerUser[index].style.border = "2px solid red";
+                answerUser[index].style.border = "3px solid red";
                 wrong++;
             } else {
-                answerUser[index].style.border = "2px solid green";
+                answerUser[index].style.border = "3px solid green";
             }
         });
 
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
             message.innerHTML = `
         <div class="card">
             <div class="card-body">
-                <span class="text-danger">Semua jawaban salah</span>
+                <span class="text-danger"><b>Semua jawaban salah</b></span>
             </div>
         </div>`;
         }
@@ -44,14 +44,14 @@ document.addEventListener("DOMContentLoaded", () => {
             message.innerHTML = `
         <div class="card">
             <div class="card-body">
-                <span class="text-danger">Masih ada jawaban yang salah</span>
+                <span class="text-danger"><b>Masih ada jawaban yang salah</b></span>
             </div>
         </div>`;
         } else {
             message.innerHTML = `
         <div class="card">
             <div class="card-body">
-                <span class="text-success">Jawaban benar semua</span>
+                <span class="text-success"><b>Jawaban benar semua</b></span>
             </div>
         </div>`;
         }
