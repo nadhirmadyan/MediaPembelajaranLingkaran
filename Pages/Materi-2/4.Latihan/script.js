@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
             messageEmpat.innerHTML = "<b>Masih ada jawaban yang salah</b>";
             messageEmpat.style.color = "red";
         } else {
-            messageEmpat.innerHTML = "<b><b>Jawaban benar semua</b><br> Jadi, jari - jari lingkaran tersebut adalah <b>35.03 cm.</b></b>";
+            messageEmpat.innerHTML = "<b>Jawaban benar semua</b><br> Jadi, jari - jari lingkaran tersebut adalah <b>35.03 cm.</b>";
             messageEmpat.style.color = "black";
         }
     });

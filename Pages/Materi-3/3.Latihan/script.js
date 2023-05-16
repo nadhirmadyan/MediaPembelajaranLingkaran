@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
             messageDua.innerHTML = "<b>Masih ada jawaban yang salah</b>";
             messageDua.style.color = "red";
         } else {
-            messageDua.innerHTML = "<b>Jawaban benar semua</b> <br> Jadi, luas lingkaran tersebut adalah <b>38.5 cm</b>";
+            messageDua.innerHTML = "<b>Jawaban benar semua</b> <br> Jadi, luas lingkaran tersebut adalah <b>38.5 cm<sup>2</sup></b>";
             messageDua.style.color = "black";
             nextSoal[1].classList.remove("disabled");
         }
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
             messageTiga.innerHTML = "<b>Masih ada jawaban yang salah</b>";
             messageTiga.style.color = "red";
         } else {
-            messageTiga.innerHTML = "<b>Jawaban benar semua</b> <br> Jadi, luas lingkaran tersebut adalah <b>314 cm</b>";
+            messageTiga.innerHTML = "<b>Jawaban benar semua</b> <br> Jadi, luas lingkaran tersebut adalah <b>314 cm<sup>2</sup></b>";
             messageTiga.style.color = "black";
             nextSoal[2].classList.remove("disabled");
         }
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
             messageEmpat.innerHTML = "<b>Masih ada jawaban yang salah</b>";
             messageEmpat.style.color = "red";
         } else {
-            messageEmpat.innerHTML = "<b>Jawaban benar semua</b><br> Jadi, luas lingkaran tersebut adalah <b>1386 cm</b>";
+            messageEmpat.innerHTML = "<b>Jawaban benar semua</b><br> Jadi, luas lingkaran tersebut adalah <b>1386 cm<sup>2</sup></b>";
             messageEmpat.style.color = "black";
             nextSoal[3].classList.remove("disabled");
         }
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
             messageLima.innerHTML = "<b>Masih ada jawaban yang salah</b>";
             messageLima.style.color = "red";
         } else {
-            messageLima.innerHTML = "<b>Jawaban benar semua</b><br> Jadi, luas taman yang ditanami rumput gajah adalah <b>78.5 m</b>";
+            messageLima.innerHTML = "<b>Jawaban benar semua</b><br> Jadi, luas taman yang ditanami rumput gajah adalah <b>78.5 m<sup>2</sup></b>";
             messageLima.style.color = "black";
             nextSoal[4].classList.remove("disabled");
         }

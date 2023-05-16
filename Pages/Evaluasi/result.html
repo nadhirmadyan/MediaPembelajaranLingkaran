@@ -2,55 +2,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon">
 
-    <!-- Memanggil Bootstrap CSS -->
-    <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <!-- Memanggil CSS -->
-    <link rel="stylesheet" href="/Asset/CSS/Course.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.css">
+  <!-- Memanggil Bootstrap CSS -->
+  <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- Memanggil CSS -->
+  <link rel="stylesheet" href="/Asset/CSS/Course.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.css">
 
-    <title>Evaluasi</title>
+  <title>Evaluasi</title>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
 
-    </nav>
+  </nav>
 
-    <!-- Main Content -->
-    <div class="container my-5">
-        <div class="card my-5 text-center h-100">
-            <div class="card-body">
-                <h4 id="nama"></h4>
-                <p>Jawaban benar: <span id="correct"></span>, Jawaban Salah: <span id="wrong"></span></p>
-                <h1>Nilai Anda</h1>
-                <h1 class="score"></h1>
-                <h4 class="message"></h4>
-                <hr>
-                <a href="./" class="btn btn-md btn-info text-white retry">Kerjakan Ulang</a>
-                <a href="/Pages/Materi-1/0/" class="btn btn-md btn-danger text-white" id="next">Kembali Ke Materi</a>
-            </div>
-        </div>
+  <!-- Main Content -->
+  <div class="container my-5">
+    <div class="card my-5 text-center h-100">
+      <div class="card-body">
+        <h4 id="nama"></h4>
+        <p style="text-align: center;">Jawaban benar : <b><span id="correct"></span></b>, Jawaban Salah : <b><span
+              id="wrong"></span></b></p>
+        <h1>Nilai Anda</h1>
+        <h1 class="score"></h1>
+        <h4 class="message"></h4>
+        <hr>
+        <a href="./" class="btn btn-md btn-info text-white retry" id="retry">Kerjakan Ulang</a>
+        <a href="/Pages/Materi-1/1.Pendahuluan/index.html" class="btn btn-md btn-dark" id="next">Kembali Ke Materi</a>
+      </div>
     </div>
-    <!-- End Content -->
+  </div>
+  <!-- End Content -->
 
 
-    <!-- Memanggil Bootstrap JS -->
-    <script src="/Asset/Bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Memanggil file Component JS -->
-    <script src="/components/navbar.js"></script>
+  <!-- Memanggil Bootstrap JS -->
+  <script src="/Asset/Bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Memanggil file Component JS -->
+  <script src="/components/navbar.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.js"></script>
-    <script type="module">
-        const length = sessionStorage.getItem('length-4');
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.js"></script>
+  <script type="module">
+    const length = sessionStorage.getItem('length-4');
     const correct = sessionStorage.getItem('correct-4');
     const wrong = sessionStorage.getItem('wrong-4');
     const nama = sessionStorage.getItem('nama');
@@ -140,7 +141,7 @@
         } else {
           addData();
           next.classList.remove("disabled");
-          message.innerText = `Selamat anda anda lulus. Silahkan lanjut kemateri berikutnya.`;
+          message.innerText = `Selamat anda anda lulus.`;
         }
       }
 

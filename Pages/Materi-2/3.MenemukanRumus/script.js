@@ -16,8 +16,8 @@ cekAnswer.addEventListener("click", () => {
         const hasil = keliling[index].value / value;
 
         if (keliling[index].value != hitungKeliling.toFixed(2)) {
-           keliling[index].style.border = "2px solid red";
-           wrong1++;
+            keliling[index].style.border = "2px solid red";
+            wrong1++;
         } else {
             keliling[index].style.border = "2px solid green";
         }

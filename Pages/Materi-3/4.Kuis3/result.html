@@ -2,107 +2,106 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon" />
 
-    <!-- Memanggil Bootstrap CSS -->
-    <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <!-- Memanggil CSS -->
-    <link rel="stylesheet" href="/Asset/CSS/Course.css" />
+  <!-- Memanggil Bootstrap CSS -->
+  <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- Memanggil CSS -->
+  <link rel="stylesheet" href="/Asset/CSS/Course.css" />
 
-    <title>Kuis 3 Lingkaran</title>
+  <title>Kuis 3 Lingkaran</title>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav"></nav>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav"></nav>
 
-    <!-- Navbar Bottom -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-bottom"></nav>
+  <!-- Navbar Bottom -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-bottom"></nav>
 
-    <!-- Membuat Breadcrumb -->
-    <nav aria-label="breadcrumb" class="breadcrumb-header">
-        <ol class="breadcrumb container">
-            <li class="breadcrumb-item">Luas Lingkaran</li>
-            <li class="breadcrumb-item active" style="font-weight: bold;">Kuis 3</li>
-        </ol>
-    </nav>
-    <!-- End Breadcrumb -->
+  <!-- Membuat Breadcrumb -->
+  <nav aria-label="breadcrumb" class="breadcrumb-header">
+    <ol class="breadcrumb container">
+      <li class="breadcrumb-item">Luas Lingkaran</li>
+      <li class="breadcrumb-item active" style="font-weight: bold;">Kuis 3</li>
+    </ol>
+  </nav>
+  <!-- End Breadcrumb -->
 
-    <!-- Main Content -->
-    <div class="container my-4">
-        <div class="row">
-            <div class="col-lg-3 col-sm-12">
-                <div class="list-course"></div>
+  <!-- Main Content -->
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-lg-3 col-sm-12">
+        <div class="list-course"></div>
+      </div>
+
+      <div class="col-lg-9 col-sm-12">
+        <div class="card card-body">
+          <!-- Start Course -->
+          <!-- <h1>Kuis</h1> -->
+
+          <div class="text-center my-5">
+            <p class="text-center">
+              Jawaban benar: <span id="correct"></span>, Jawaban Salah
+              <span id="wrong"></span>
+            </p>
+            <h1>Nilai Anda</h1>
+            <h1 class="score"></h1>
+            <h4 class="message"></h4>
+            <a href="/Pages/Materi-3/4.Kuis3/index.html" class="btn btn-sm btn-info text-white retry">Kerjakan
+              Ulang Kuis 3</a>
+          </div>
+
+          <!-- End Course -->
+          <hr />
+          <div class="row web">
+            <div class="col-lg-6 col-sm-12">
+              <a href="/Pages/Materi-3/1.Pendahuluan/index.html" class="btn btn-sm btn-outline-dark" id="back"><i
+                  class="fas fa-chevron-left"></i>Pelajari lagi materi</a>
             </div>
-
-            <div class="col-lg-9 col-sm-12">
-                <div class="card card-body">
-                    <!-- Start Course -->
-                    <!-- <h1>Kuis</h1> -->
-
-                    <div class="text-center my-5">
-                        <p class="text-center">
-                            Jawaban benar: <span id="correct"></span>, Jawaban Salah
-                            <span id="wrong"></span>
-                        </p>
-                        <h1>Nilai Anda</h1>
-                        <h1 class="score"></h1>
-                        <h4 class="message"></h4>
-                        <a href="/Pages/Materi-3/4.Kuis3/index.html"
-                            class="btn btn-sm btn-info text-white retry">Kerjakan
-                            Ulang Kuis 3</a>
-                    </div>
-
-                    <!-- End Course -->
-                    <hr />
-                    <div class="row web">
-                        <div class="col-lg-6 col-sm-12">
-                            <a href="/Pages/Materi-3/1.Pendahuluan/index.html" class="btn btn-sm btn-outline-dark"
-                                id="back"><i class="fas fa-chevron-left"></i>Pelajari lagi materi</a>
-                        </div>
-                        <div class="col-lg-6 col-sm-12 text-end">
-                            <a href="/Pages/Latihan/index.html" class="btn btn-sm btn-dark next" id="next">Halaman
-                                Selanjutnya <i class="fas fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="responsive">
-                        <div class="d-grid gap-2">
-                            <a href="/Pages/Materi-3/1.Pendahuluan/index.html" class="btn btn-sm btn-outline-dark"
-                                id="back"><i class="fas fa-chevron-left"></i>Pelajari lagi materi</a>
-                            <a href="/Pages/Latihan/index.html" class="btn btn-sm btn-dark next" id="next">Halaman
-                                Selanjutnya <i class="fas fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-6 col-sm-12 text-end">
+              <a href="/Pages/Evaluasi/index.html" class="btn btn-sm btn-dark next" id="next">Halaman
+                Selanjutnya <i class="fas fa-chevron-right"></i></a>
             </div>
+          </div>
+
+          <div class="responsive">
+            <div class="d-grid gap-2">
+              <a href="/Pages/Materi-3/1.Pendahuluan/index.html" class="btn btn-sm btn-outline-dark" id="back"><i
+                  class="fas fa-chevron-left"></i>Pelajari lagi materi</a>
+              <a href="/Pages/Evaluasi/index.html" class="btn btn-sm btn-dark next" id="next">Halaman
+                Selanjutnya <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- End Content -->
+  </div>
+  <!-- End Content -->
 
-    <!-- Footer -->
-    <section id="footer">
-        <div class="container">
-            <p class="text-center">&copy; 2021 Media Pembelajaran Lingkaran</p>
-        </div>
-    </section>
+  <!-- Footer -->
+  <section id="footer">
+    <div class="container">
+      <p class="text-center">&copy; 2023 Media Pembelajaran Lingkaran</p>
+    </div>
+  </section>
 
-    <!-- Memanggil file Component JS -->
-    <script src="/components/navbar.js"></script>
-    <script src="/components/list-course.js"></script>
-    <script src="/components/list-course-responsive.js"></script>
+  <!-- Memanggil file Component JS -->
+  <script src="/components/navbar.js"></script>
+  <script src="/components/list-course.js"></script>
+  <script src="/components/list-course-responsive.js"></script>
 
-    <!-- Memanggil Bootstrap JS -->
-    <script src="/Asset/Bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Memanggil Bootstrap JS -->
+  <script src="/Asset/Bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <script type="module">
-        // mengambil hasil yang disimpan pada sessionstorage
+  <script type="module">
+    // mengambil hasil yang disimpan pada sessionstorage
       const length = sessionStorage.getItem("length-3");
       const correct = sessionStorage.getItem("correct-3");
       const wrong = sessionStorage.getItem("wrong-3");

@@ -73,9 +73,9 @@
                                     pada tabel di bawah ini!</span></li>
 
                             <div class="table-responsive">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered" style="border: solid;">
                                     <thead>
-                                        <tr class="text-center">
+                                        <tr class="text-center" style="background-color: #8cd98c;">
                                             <th>Lingkaran</th>
                                             <th>Diameter $(d)$</th>
                                             <th>Keliling $(K)$</th>
@@ -86,33 +86,41 @@
                                         <tr class="text-center">
                                             <td>C1</td>
                                             <td>2</td>
-                                            <td><input type="text" class="form-control keliling" placeholder="....">
+                                            <td><input style="border-color: black; text-align: center;" type="text"
+                                                    class="form-control keliling" placeholder="....">
                                             </td>
-                                            <td><input type="text" class="form-control perbandingan" placeholder="....">
+                                            <td><input style="border-color: black; text-align: center;" type="text"
+                                                    class="form-control perbandingan" placeholder="....">
                                             </td>
                                         </tr>
                                         <tr class="text-center">
                                             <td>C2</td>
                                             <td>3</td>
-                                            <td><input type="text" class="form-control keliling" placeholder="....">
+                                            <td><input style="border-color: black; text-align: center;" type="text"
+                                                    class="form-control keliling" placeholder="....">
                                             </td>
-                                            <td><input type="text" class="form-control perbandingan" placeholder="....">
+                                            <td><input style="border-color: black; text-align: center;" type="text"
+                                                    class="form-control perbandingan" placeholder="....">
                                             </td>
                                         </tr>
                                         <tr class="text-center">
                                             <td>C3</td>
                                             <td>4</td>
-                                            <td><input type="text" class="form-control keliling" placeholder="....">
+                                            <td><input style="border-color: black; text-align: center;" type="text"
+                                                    class="form-control keliling" placeholder="....">
                                             </td>
-                                            <td><input type="text" class="form-control perbandingan" placeholder="....">
+                                            <td><input style="border-color: black; text-align: center;" type="text"
+                                                    class="form-control perbandingan" placeholder="....">
                                             </td>
                                         </tr>
                                         <tr class="text-center">
                                             <td>C4</td>
                                             <td>5</td>
-                                            <td><input type="text" class="form-control keliling" placeholder="....">
+                                            <td><input style="border-color: black; text-align: center;" type="text"
+                                                    class="form-control keliling" placeholder="....">
                                             </td>
-                                            <td><input type="text" class="form-control perbandingan" placeholder="....">
+                                            <td><input style="border-color: black; text-align: center;" type="text"
+                                                    class="form-control perbandingan" placeholder="....">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -225,13 +233,17 @@
                                     $r$ = jari - jari Lingkaran<br>
                                     $\pi$ = rasio lingkaran yang bernilai $3,14$ atau $\frac{22}{7}$
                                 </p>
-                                <p>
-                                    <b>Catatan :</b><br>
-                                    Untuk memudahkan penghitungan, nilai $\pi$ = $\frac{22}{7}$ digunakan untuk jari -
-                                    jari
-                                    atau diameter yang panjangnya merupakan bilangan kelipatan $7$. Nilai $\pi$ = $3,14$
-                                    digunakan untuk bilangan lainnya.
-                                </p>
+
+                                <div class="card info my-3">
+                                    <div class="card-body">
+                                        <p>
+                                            <b>Catatan :</b><br>
+                                            Untuk memudahkan penghitungan, nilai $\pi$ = $\frac{22}{7}$ digunakan untuk
+                                            jari - jari atau diameter yang panjangnya merupakan bilangan kelipatan $7$.
+                                            Nilai $\pi$ = $3,14$ digunakan untuk bilangan lainnya.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -247,14 +259,14 @@
                                         <p class="fw-bold">
                                             Penyelesaian :
                                         </p>
-                                        <button class="btn btn-sm btn-secondary" id="btnSatu_step-1">Diketahui
+                                        <button class="btn btn-sm btn-dark" id="btnSatu_step-1">Diketahui
                                             (Tekan)</button>
 
                                         <div id="showSatu_step-1">
                                             <p style="padding-top: 5px;">
                                                 Diketahui : $d = 6$ $cm$
                                             </p>
-                                            <button class="btn btn-sm btn-secondary" id="btnSatu_step-2">
+                                            <button class="btn btn-sm btn-dark" id="btnSatu_step-2">
                                                 Ditanya (Tekan)
                                             </button>
                                         </div>
@@ -263,7 +275,7 @@
                                             <p>
                                                 Ditanya : $K = . . .?$
                                             </p>
-                                            <button class="btn btn-sm btn-secondary" id="btnSatu_step-3">
+                                            <button class="btn btn-sm btn-dark" id="btnSatu_step-3">
                                                 Jawab (Tekan)
                                             </button>
                                         </div>
@@ -295,7 +307,7 @@
                                             Penyelesaian :
                                         </p>
 
-                                        <button class="btn btn-sm btn-secondary" id="btnDua_step-1">
+                                        <button class="btn btn-sm btn-dark" id="btnDua_step-1">
                                             Diketahui (Tekan)
                                         </button>
 
@@ -303,7 +315,7 @@
                                             <p style="padding-top: 5px;">
                                                 Diketahui : $r = 7$ $cm$
                                             </p>
-                                            <button class="btn btn-sm btn-secondary" id="btnDua_step-2">
+                                            <button class="btn btn-sm btn-dark" id="btnDua_step-2">
                                                 Ditanya (Tekan)
                                             </button>
                                         </div>
@@ -312,7 +324,7 @@
                                             <p>
                                                 Ditanya : $K = . . .?$
                                             </p>
-                                            <button class="btn btn-sm btn-secondary" id="btnDua_step-3">
+                                            <button class="btn btn-sm btn-dark" id="btnDua_step-3">
                                                 Jawab (Tekan)
                                             </button>
                                         </div>
@@ -346,7 +358,7 @@
                                             Penyelesaian :
                                         </p>
 
-                                        <button class="btn btn-sm btn-secondary" id="btnTiga_step-1">
+                                        <button class="btn btn-sm btn-dark" id="btnTiga_step-1">
                                             Diketahui (Tekan)
                                         </button>
 
@@ -354,7 +366,7 @@
                                             <p style="padding-top: 5px;">
                                                 Diketahui : $K = 31,4$ $cm$
                                             </p>
-                                            <button class="btn btn-sm btn-secondary" id="btnTiga_step-2">
+                                            <button class="btn btn-sm btn-dark" id="btnTiga_step-2">
                                                 Ditanya (Tekan)
                                             </button>
                                         </div>
@@ -363,7 +375,7 @@
                                             <p>
                                                 Ditanya : $d = . . .?$
                                             </p>
-                                            <button class="btn btn-sm btn-secondary" id="btnTiga_step-3">
+                                            <button class="btn btn-sm btn-dark" id="btnTiga_step-3">
                                                 Jawab (Tekan)
                                             </button>
                                         </div>
@@ -396,7 +408,7 @@
                                             Penyelesaian :
                                         </p>
 
-                                        <button class="btn btn-sm btn-secondary" id="btnEmpat_step-1">
+                                        <button class="btn btn-sm btn-dark" id="btnEmpat_step-1">
                                             Diketahui (Tekan)
                                         </button>
 
@@ -404,7 +416,7 @@
                                             <p style="padding-top: 5px;">
                                                 Diketahui : $K = 88$ $cm$
                                             </p>
-                                            <button class="btn btn-sm btn-secondary" id="btnEmpat_step-2">
+                                            <button class="btn btn-sm btn-dark" id="btnEmpat_step-2">
                                                 Ditanya (Tekan)
                                             </button>
                                         </div>
@@ -413,7 +425,7 @@
                                             <p>
                                                 Ditanya : $r = . . .?$
                                             </p>
-                                            <button class="btn btn-sm btn-secondary" id="btnEmpat_step-3">
+                                            <button class="btn btn-sm btn-dark" id="btnEmpat_step-3">
                                                 Jawab (Tekan)
                                             </button>
                                         </div>
@@ -470,7 +482,7 @@
     <!-- Footer -->
     <section id="footer">
         <div class="container">
-            <p class="text-center">&copy; 2021 Media Pembelajaran Lingkaran</p>
+            <p class="text-center">&copy; 2023 Media Pembelajaran Lingkaran</p>
         </div>
     </section>
 

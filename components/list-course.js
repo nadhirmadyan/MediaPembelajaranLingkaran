@@ -195,7 +195,7 @@ document.querySelector(".list-course").innerHTML = `
         )}" aria-labelledby="panelsStayOpen-headingFour">
         <div class="accordion-body">
             <div class="list-course">
-            <a href="/pages/Evaluasi/" class="list-course-child isDisabled sub-4-0 ${getChapChild(
+            <a href="/Pages/Evaluasi/" class="list-course-child isDisabled sub-4-0 ${getChapChild(
                 "Evaluasi/"
                 )}">Evaluasi</a>
             </div>
