@@ -1,16 +1,20 @@
 const getChapClass = (path) => {
-    return this.location.pathname.substr(7, 8) === path ? "show" : "";
+    // return this.location.pathname.substr(7, 8) === path ? "show" : "";
+    return this.location.pathname.substr(51, 8) === path ? "show" : "";
 };
 
 const getCollapsed = (path) => {
-    return this.location.pathname.substr(7, 8) !== path ? "collapsed" : "";
+    // return this.location.pathname.substr(7, 8) !== path ? "collapsed" : "";
+    return this.location.pathname.substr(51, 8) !== path ? "collapsed" : "";
 };
 
 const getChapChild = (path) => {
-    return this.location.pathname.substring(7) === path ? "course-active" : "";
+    // return this.location.pathname.substring(7) === path ? "course-active" : "";
+    return this.location.pathname.substring(51) === path ? "course-active" : "";
 };
 
-console.log(this.location.pathname.substring(7))
+// console.log(this.location.pathname.substring(7))
+console.log(this.location.pathname.substring(51))
 
 document.querySelector(".list-course").innerHTML = `
 <div class="accordion" id="accordionPanelsStayOpenExample">

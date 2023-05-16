@@ -19,7 +19,7 @@ const questions = [{
         correctAnswer: "b",
     },
     {
-        question: "<img src='./img/Kuis 2 (Nomor 3).jpg' class='img-fluid float-end' width='180'>Sebuah kue ulang tahun memiliki permukaan yang berbentuk seperti lingkaran. Jika keliling kue ulang tahun tersebut adalah $94,2$ $cm$, maka panjang jari – jari dari kue ulang tahun tersebut adalah . . . .",
+        question: "<div class='float-end'><img src='./img/Kuis 2 (Nomor 3).jpg' class='img-fluid' width='180'> <div class='src-text' style='width:180px; font-size:0.8em'>Sumber : https://id.pinterest.com/pin/140596819609047742/</div> </div>Sebuah kue ulang tahun memiliki permukaan yang berbentuk seperti lingkaran. Jika keliling kue ulang tahun tersebut adalah $94,2$ $cm$, maka panjang jari – jari dari kue ulang tahun tersebut adalah . . . .",
         answers: {
             a: "$30$ $cm$",
             b: "$15$ $cm$",

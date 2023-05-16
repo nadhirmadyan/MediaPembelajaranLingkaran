@@ -34,24 +34,24 @@ cekAnswer.addEventListener("click", () => {
 
     if (wrong1 === 4 && wrong2 === 4) {
         message.innerHTML = `
-        <div class="card">
+        <div class="card bg-danger">
             <div class="card-body">
-                <span class="text-danger fw-bold fs-5">Semua jawaban salah</span>
+                <span class="text-white fw-bold fs-5">Semua jawaban salah</span>
             </div>
         </div>`;
     }
     else if (wrong1 > 0 || wrong2 > 0) {
         message.innerHTML = `
         <div class="card">
-            <div class="card-body">
-                <span class="text-danger fw-bold fs-5">Masih ada jawaban yang salah</span>
+            <div class="card-body bg-danger">
+                <span class="text-white fw-bold fs-5">Masih ada jawaban yang salah</span>
             </div>
         </div>`;
     } else {
         message.innerHTML = `
         <div class="card">
-            <div class="card-body">
-                <span class="text-success fw-bold fs-5">Jawaban benar semua</span>
+            <div class="card-body bg-success">
+                <span class="text-white fw-bold fs-5">Jawaban benar semua</span>
             </div>
         </div>`;
     }
@@ -76,23 +76,23 @@ checkAnswer2.addEventListener('click', () => {
     if (wrong === 3) {
         message2.innerHTML = `
         <div class="card">
-            <div class="card-body">
-                <span class="text-danger fw-bold fs-5">Semua jawaban salah</span>
+            <div class="card-body bg-danger">
+                <span class="text-white fw-bold fs-5">Semua jawaban salah</span>
             </div>
         </div>`;
     }
     else if (wrong > 0) {
         message2.innerHTML = `
         <div class="card">
-            <div class="card-body">
-                <span class="text-danger fw-bold fs-5">Masih ada jawaban yang salah</span>
+            <div class="card-body bg-danger">
+                <span class="text-white fw-bold fs-5">Masih ada jawaban yang salah</span>
             </div>
         </div>`;
     } else {
         message2.innerHTML = `
         <div class="card">
-            <div class="card-body">
-                <span class="text-success fw-bold fs-5">Jawaban benar semua</span>
+            <div class="card-body bg-success">
+                <span class="text-white fw-bold fs-5">Jawaban benar semua</span>
             </div>
         </div>`;
         nextMateri3.style.display = 'block';

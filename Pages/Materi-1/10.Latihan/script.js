@@ -34,24 +34,24 @@ document.addEventListener("DOMContentLoaded", () => {
         // proses setelah cek jawaban, untuk menampilkan pesan
         if (wrong === 10) {
             message.innerHTML = `
-        <div class="card">
+        <div class="card bg-danger">
             <div class="card-body">
-                <span class="text-danger"><b>Semua jawaban salah</b></span>
+                <span class="text-white"><b>Semua jawaban salah</b></span>
             </div>
         </div>`;
         }
         else if (wrong > 0) {
             message.innerHTML = `
-        <div class="card">
+        <div class="card bg-danger">
             <div class="card-body">
-                <span class="text-danger"><b>Masih ada jawaban yang salah</b></span>
+                <span class="text-white"><b>Masih ada jawaban yang salah</b></span>
             </div>
         </div>`;
         } else {
             message.innerHTML = `
-        <div class="card">
+        <div class="card bg-success">
             <div class="card-body">
-                <span class="text-success"><b>Jawaban benar semua</b></span>
+                <span class="text-white"><b>Jawaban benar semua</b></span>
             </div>
         </div>`;
         }
