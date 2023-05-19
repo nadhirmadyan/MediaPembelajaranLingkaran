@@ -39,7 +39,7 @@ const questions = [{
         correctAnswer: "c",
     },
     {
-        question: "<img src='./img/Kuis 2 (Nomor 5).jpg' class='img-fluid float-end' width='180'>Seorang atlet berlari mengelilingi sebuah taman yang berbentuk lingkaran. Diketahui diameter taman tersebut adalah $14$ meter. Jika atlet tersebut mengelilingi lingkaran sebanyak $2$ kali putaran, maka panjang lintasan yang ditempuhnya adalah . . . .",
+        question: "<div class='float-end'><img src='./img/Kuis 2 (Nomor 5).jpg' class='img-fluid' width='180'> <div class='src-text' style='width:180px; font-size:0.8em'>Sumber : https://id.pinterest.com/pin/593841900885497783/</div> </div>Seorang atlet berlari mengelilingi sebuah taman yang berbentuk lingkaran. Diketahui diameter taman tersebut adalah $14$ meter. Jika atlet tersebut mengelilingi lingkaran sebanyak $2$ kali putaran, maka panjang lintasan yang ditempuhnya adalah . . . .",
         answers: {
             a: "$88$ $m$",
             b: "$44$ $m$",
@@ -59,7 +59,7 @@ const questions = [{
         correctAnswer: "a",
     },
     {
-        question: "<img src='./img/Kuis 2 (Nomor 7).jpg' class='img-fluid float-end' width='180'>Sebuah kolam di taman kota berbentuk lingkaran dengan jari – jari $7$ $m$, maka keliling kolam taman tersebut adalah . . . .",
+        question: "<div class='float-end'><img src='./img/Kuis 2 (Nomor 7).jpg' class='img-fluid' width='180'> <div class='src-text' style='width:180px; font-size:0.8em'>Sumber : https://id.pinterest.com/pin/197314027410949328/</div> </div>Sebuah kolam di taman kota berbentuk lingkaran dengan jari – jari $7$ $m$, maka keliling kolam taman tersebut adalah . . . .",
         answers: {
             a: "$14$ $m$",
             b: "$28$ $m$",
@@ -79,7 +79,7 @@ const questions = [{
         correctAnswer: "d",
     },
     {
-        question: "<img src='./img/Kuis 2 (Nomor 9).jpg' class='img-fluid float-end' width='180'>Sebuah ban mobil memiliki jari – jari $28$ $cm$, maka keliling lingkaran ban mobil tersebut adalah . . . .",
+        question: "<div class='float-end'><img src='./img/Kuis 2 (Nomor 9).jpg' class='img-fluid' width='180'> <div class='src-text' style='width:180px; font-size:0.8em'>Sumber : https://id.pinterest.com/pin/112027109728370001/</div> </div>Sebuah ban mobil memiliki jari – jari $28$ $cm$, maka keliling lingkaran ban mobil tersebut adalah . . . .",
         answers: {
             a: "$166$ $cm$",
             b: "$176$ $cm$",
@@ -89,7 +89,7 @@ const questions = [{
         correctAnswer: "b",
     },
     {
-        question: "<img src='./img/Kuis 2 (Nomor 10).jpg' class='img-fluid float-end' width='180'>Sebuah bianglala memiliki bentuk seperti sebuah lingkaran. Diketahui bahwa keliling bianglala tersebut $880$ $m$. Maka panjang jari – jari dari bianglala tersebut adalah . . . .",
+        question: "<div class='float-end'><img src='./img/Kuis 2 (Nomor 10).jpg' class='img-fluid' width='180'> <div class='src-text' style='width:180px; font-size:0.8em'>Sumber : https://id.pinterest.com/pin/554153929162013071/</div> </div>Sebuah bianglala memiliki bentuk seperti sebuah lingkaran. Diketahui bahwa keliling bianglala tersebut $880$ $m$. Maka panjang jari – jari dari bianglala tersebut adalah . . . .",
         answers: {
             a: "$180.12$ $m$",
             b: "$170$ $m$",

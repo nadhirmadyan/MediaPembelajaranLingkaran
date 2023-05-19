@@ -59,7 +59,7 @@
         <h4 class="message"></h4>
         <hr>
         <a href="./" class="btn btn-md btn-info text-white retry" id="retry">Kerjakan Ulang</a>
-        <a href="/Pages/Materi-1/1.Pendahuluan/index.html" class="btn btn-md btn-dark" id="next">Kembali Ke Materi</a>
+        <a href="/pages/materi-1/1.pendahuluan/index.html" class="btn btn-md btn-dark" id="next">Kembali Ke Materi</a>
       </div>
     </div>
   </div>
@@ -156,7 +156,8 @@
         if (score < kkm) {
           next.classList.add("disabled");
           addData();
-          message.innerText = `Maaf anda belum lulus, nilai minimal yang harus anda dapatkan ${kkm}. Silahkan kerjakan ulang.`;
+          message.innerText = `Maaf anda belum lulus, nilai minimal yang harus didapatkan adalah ${kkm}.
+          Silahkan kerjakan ulang.`;
         } else {
           addData();
           next.classList.remove("disabled");

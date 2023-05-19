@@ -119,7 +119,7 @@ const questions = [{
         correctAnswer: "a",
     },
     {
-        question: "<img src='./img/EvaluasiNomor13.jpg' class='img-fluid float-end' width='180'> Suatu taman bunga berbentuk lingkaran dengan diameter sepanjang $35$ $m$. Seorang atlet berlari mengelilingi taman tersebut sebanyak $3$ kali putaran, maka jarak lintasan yang ditempuh atlet tersebut adalah . . . .",
+        question: "<div class='float-end'><img src='./img/EvaluasiNomor13.jpg' class='img-fluid' width='180'> <div class='src-text' style='width:180px; font-size:0.8em'>Sumber : https://id.pinterest.com/pin/367817494579983185/</div> </div>Suatu taman bunga berbentuk lingkaran dengan diameter sepanjang $35$ $m$. Seorang atlet berlari mengelilingi taman tersebut sebanyak $3$ kali putaran, maka jarak lintasan yang ditempuh atlet tersebut adalah . . . .",
         answers: {
             a: "$110$ $m$",
             b: "$220$ $m$",
@@ -179,7 +179,7 @@ const questions = [{
         correctAnswer: "d",
     },
     {
-        question: "<img src='./img/EvaluasiNomor19.jpg' class='img-fluid float-end'  width='170'> Pak Adit membeli sebuah pizza dengan diameter $28$ $cm$. Dengan nilai $\\pi$ $=$ $\\frac{22}{7}$, maka luas pizza yang dibeli Pak Adit adalah. . . .",
+        question: "<div class='float-end'><img src='./img/EvaluasiNomor19.jpg' class='img-fluid' width='170'> <div class='src-text' style='width:170px; font-size:0.8em'>Sumber : https://id.pinterest.com/pin/113786328079961493/</div> </div>Pak Adit membeli sebuah pizza dengan diameter $28$ $cm$. Dengan nilai $\\pi$ $=$ $\\frac{22}{7}$, maka luas pizza yang dibeli Pak Adit adalah. . . .",
         answers: {
             a: "$406$ $cm^2$",
             b: "$616$ $cm^2$",

@@ -20,7 +20,7 @@ const questions = [
         correctAnswer: "c",
     },
     {
-        question: "<img src='./img/Nomor3.jpg' class='img-fluid float-end' width='150'> Sebuah jam dinding memiliki bentuk menyerupai lingkaran dan memiliki jari - jari sepanjang $9$ $cm$. Luas jam dinding tersebut adalah ....",
+        question: "<div class='float-end'><img src='./img/Nomor3.jpg' class='img-fluid' width='150'> <div class='src-text' style='width:150px; font-size:0.8em'>Sumber : Dokumentasi Penulis</div> </div>Sebuah jam dinding memiliki bentuk menyerupai lingkaran dan memiliki jari - jari sepanjang $9$ $cm$. Luas jam dinding tersebut adalah ....",
         answers: {
             a: "$280,74$ $cm^{2}$",
             b: "$285,74$ $cm^{2}$",
@@ -30,7 +30,7 @@ const questions = [
         correctAnswer: "b",
     },
     {
-        question: "<img src='./img/Nomor4.jpg' class='img-fluid float-end' width='150'> Sebuah uang logam memiliki diameter $2$ $cm$. Maka luas uang logam tersebut adalah ....",
+        question: "<div class='float-end'><img src='./img/Nomor4.jpg' class='img-fluid' width='150'> <div class='src-text' style='width:150px; font-size:0.8em'>Sumber : Dokumentasi Penulis</div> </div>Sebuah uang logam memiliki diameter $2$ $cm$. Maka luas uang logam tersebut adalah ....",
         answers: {
             a: "$1,14$ $cm^{2}$",
             b: "$1,50$ $cm^{2}$",
@@ -50,7 +50,7 @@ const questions = [
         correctAnswer: "d",
     },
     {
-        question: "<img src='./img/Nomor6.jpg' class='img-fluid float-end' width='150'> Sebuah tutup botol minuman berbentuk lingkaran memiliki jari - jari $1,4$ $cm$. Maka luas tutup botol minuman tersebut adalah ....",
+        question: "<div class='float-end'><img src='./img/Nomor6.jpg' class='img-fluid' width='150'> <div class='src-text' style='width:150px; font-size:0.8em'>Sumber : Dokumentasi Penulis</div> </div>Sebuah tutup botol minuman berbentuk lingkaran memiliki jari - jari $1,4$ $cm$. Maka luas tutup botol minuman tersebut adalah ....",
         answers: {
             a: "$5,15$ $cm^{2}$",
             b: "$6,15$ $cm^{2}$",
@@ -90,7 +90,7 @@ const questions = [
         correctAnswer: "b",
     },
     {
-        question: "<img src='./img/Nomor10.jpg' class='img-fluid float-end' width='250'> Pak Faisal memiliki kolam ikan yang berbentuk lingkaran di halaman belakang rumahnya. Kolam ikan tersebut memiliki diameter sepanjang $4$ $m$. Maka luas kolam ikan Pak Faisal adalah ....",
+        question: "<div class='float-end'><img src='./img/Nomor10.jpg' class='img-fluid' width='250'> <div class='src-text' style='width:250px; font-size:0.8em'>Sumber : https://id.pinterest.com/pin/651192427366465760/</div> </div>Pak Faisal memiliki kolam ikan yang berbentuk lingkaran di halaman belakang rumahnya. Kolam ikan tersebut memiliki diameter sepanjang $4$ $m$. Maka luas kolam ikan Pak Faisal adalah ....",
         answers: {
             a: "$12,56$ $m^2$",
             b: "$14,56$ $m^2$",

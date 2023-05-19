@@ -46,36 +46,37 @@
           <!-- Start Course -->
           <!-- <h1>Kuis</h1> -->
 
-          <div class="text-center my-5">
+          <div class="text-center my-4">
+            <h4 id="nama"></h4>
             <p class="text-center">
-              Jawaban benar: <span id="correct"></span>, Jawaban Salah
-              <span id="wrong"></span>
+              Jawaban benar : <b><span id="correct"></b></span>, Jawaban Salah :
+              <b><span id="wrong"></span></b>
             </p>
             <h1>Nilai Anda</h1>
             <h1 class="score"></h1>
-            <h4 class="message"></h4>
-            <a href="/Pages/Materi-3/4.Kuis3/index.html" class="btn btn-sm btn-info text-white retry">Kerjakan
-              Ulang Kuis 3</a>
+            <h5 class="message"></h5>
+            <a href="/pages/materi-3/4.kuis3/index.html" class="btn btn-sm btn-info text-white retry"
+              id="retry">Kerjakan Ulang Kuis 3</a>
           </div>
 
           <!-- End Course -->
           <hr />
           <div class="row web">
             <div class="col-lg-6 col-sm-12">
-              <a href="/Pages/Materi-3/1.Pendahuluan/index.html" class="btn btn-sm btn-outline-dark" id="back"><i
+              <a href="/pages/materi-3/1.pendahuluan/index.html" class="btn btn-sm btn-outline-dark" id="back"><i
                   class="fas fa-chevron-left"></i>Pelajari lagi materi</a>
             </div>
             <div class="col-lg-6 col-sm-12 text-end">
-              <a href="/Pages/Evaluasi/index.html" class="btn btn-sm btn-dark next" id="next">Halaman
+              <a href="/pages/evaluasi/index.html" class="btn btn-sm btn-dark next" id="next">Halaman
                 Selanjutnya <i class="fas fa-chevron-right"></i></a>
             </div>
           </div>
 
           <div class="responsive">
             <div class="d-grid gap-2">
-              <a href="/Pages/Materi-3/1.Pendahuluan/index.html" class="btn btn-sm btn-outline-dark" id="back"><i
+              <a href="/pages/materi-3/1.pendahuluan/index.html" class="btn btn-sm btn-outline-dark" id="back"><i
                   class="fas fa-chevron-left"></i>Pelajari lagi materi</a>
-              <a href="/Pages/Evaluasi/index.html" class="btn btn-sm btn-dark next" id="next">Halaman
+              <a href="/pages/evaluasi/index.html" class="btn btn-sm btn-dark next" id="next">Halaman
                 Selanjutnya <i class="fas fa-chevron-right"></i></a>
             </div>
           </div>
@@ -116,6 +117,7 @@
       document.querySelector(".score").innerHTML = Math.ceil(score);
       document.querySelector("#correct").innerHTML = correct;
       document.querySelector("#wrong").innerHTML = wrong;
+      document.querySelector("#nama").innerHTML = nama;
 
       const message = document.querySelector(".message");
       const next = document.querySelectorAll(".next");
@@ -193,14 +195,16 @@
             })
           
           addData();
-          message.innerText = `Maaf anda belum lulus, nilai minimal yang harus anda dapatkan ${kkm}. Silahkan kerjakan ulang.`;
+          message.innerText = `Maaf anda belum lulus, nilai minimal yang harus didapatkan adalah ${kkm}.
+          Silahkan kerjakan ulang.`;
         } else {
           addData();
           next.forEach((value,index)=>{
             next[index].classList.remove("disabled");
           })
           
-          message.innerText = `Selamat anda anda lulus. Silahkan lanjut kemateri berikutnya.`;
+          message.innerText = `Selamat anda anda lulus.
+          Silahkan lanjut kemateri berikutnya.`;
         }
       }
 
