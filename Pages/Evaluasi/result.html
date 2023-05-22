@@ -40,7 +40,7 @@
             <a class="nav-link" href="/konsep.html">Peta Konsep</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about.html">Tentang</a>
+            <a class="nav-link" href="/informasi.html">Informasi</a>
           </li>
         </ul>
       </div>
@@ -113,7 +113,7 @@
       // Add Data
       async function addData() {
         try {
-          const docRef = await addDoc(collection(db, "kuis-4"), {
+          const docRef = await addDoc(collection(db, "evaluasi"), {
             nama: nama,
             kelas: kelas,
             nilai: score,

@@ -20,7 +20,7 @@ document.querySelector("#nav").innerHTML = `
       <a class="nav-link" href="/konsep.html">Peta Konsep</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/about.html">Tentang</a>
+      <a class="nav-link" href="/informasi.html">Informasi</a>
     </li>
   </ul>
 </div>
