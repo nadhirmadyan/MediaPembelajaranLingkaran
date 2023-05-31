@@ -2,71 +2,108 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon" />
 
   <!-- Memanggil Bootstrap CSS -->
-  <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Memanggil CSS -->
-  <link rel="stylesheet" href="/Asset/CSS/Course.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.css">
+  <link rel="stylesheet" href="/Asset/CSS/Course.css" />
 
-  <title>Evaluasi</title>
+  <title>Kuis 2 Lingkaran</title>
 </head>
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="/Asset/Image/Logo.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
-        <span>Lingkaran</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="/">Beranda</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/konsep.html">Peta Konsep</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/informasi.html">Informasi</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav"></nav>
+
+  <!-- Navbar Bottom -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-bottom"></nav>
+
+  <!-- Membuat Breadcrumb -->
+  <nav aria-label="breadcrumb" class="breadcrumb-header">
+    <ol class="breadcrumb container">
+      <li class="breadcrumb-item">Unsur - Unsur Lingkaran</li>
+      <li class="breadcrumb-item active" style="font-weight: bold;">Kuis 2</li>
+    </ol>
   </nav>
+  <!-- End Breadcrumb -->
 
   <!-- Main Content -->
-  <div class="container my-5">
-    <div class="card my-5 text-center h-100">
-      <div class="card-body">
-        <h4 id="nama"></h4>
-        <p class="text-center" style="font-weight: bold;">
-          Kelas : <span id="kelas"></span>
-        </p>
-        <p style="text-align: center;">Jawaban benar : <b><span id="correct"></span></b>, Jawaban Salah : <b><span
-              id="wrong"></span></b></p>
-        <h1>Nilai Anda</h1>
-        <h1 class="score"></h1>
-        <h4 class="message"></h4>
-        <hr>
-        <a href="./" class="btn btn-md btn-info text-white retry" id="retry">Kerjakan Ulang</a>
-        <a href="/pages/materi-1/1.pendahuluan/index.html" class="btn btn-md btn-dark" id="next">Kembali Ke Materi</a>
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-lg-3 col-sm-12">
+        <div class="list-course"></div>
+      </div>
+
+      <div class="col-lg-9 col-sm-12">
+        <div class="card card-body">
+          <!-- Start Course -->
+          <!-- <h1>Kuis</h1> -->
+
+          <div class="text-center my-4">
+            <h4 id="nama"></h4>
+            <p class="text-center" style="font-weight: bold;">
+              Kelas : <span id="kelas"></span>
+            </p>
+            <p class="text-center">
+              Jawaban benar : <b><span id="correct"></span></b>, Jawaban Salah :
+              <b><span id="wrong"></span></b>
+            </p>
+            <h1>Nilai Anda</h1>
+            <h1 class="score"></h1>
+            <h5 class="message"></h5>
+            <a href="/pages/materi-2/5.kuis2/index.html" class="btn btn-sm btn-info text-white retry"
+              id="retry">Kerjakan Ulang Kuis 2</a>
+          </div>
+
+          <!-- End Course -->
+          <hr>
+          <div class="row web">
+            <div class="col-lg-6 col-sm-12">
+              <a href="/pages/materi-2/1.pendahuluan/index.html" class="btn btn-sm btn-outline-dark" id="back"><i
+                  class="fas fa-chevron-left"></i>Pelajari Lagi Materi</a>
+            </div>
+            <div class="col-lg-6 col-sm-12 text-end">
+              <a href="/pages/materi-3/1.pendahuluan/index.html" class="btn btn-sm btn-dark next" id="next">Materi
+                Selanjutnya
+                <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+
+          <div class="responsive">
+            <div class="d-grid gap-2">
+              <a href="/pages/materi-2/1.pendahuluan/index.html" class="btn btn-sm btn-outline-dark" id="back"><i
+                  class="fas fa-chevron-left"></i> Pelajari Lagi Materi</a>
+              <a href="/pages/materi-3/1.pendahuluan/index.html" class="btn btn-sm btn-dark next" id="next">Materi
+                Selanjutnya
+                <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <!-- End Content -->
+
+  <!-- Footer -->
+  <section id="footer">
+    <div class="container">
+      <p class="text-center">&copy; 2023 Media Pembelajaran Lingkaran</p>
+    </div>
+  </section>
+
+  <!-- Memanggil file Component JS -->
+  <script src="/components/navbar.js"></script>
+  <script src="/components/list-course.js"></script>
+  <script src="/components/list-course-responsive.js"></script>
+  <script src="/components/open-course.js"></script>
+
 
   <!-- Memanggil Bootstrap JS -->
   <script src="/Asset/Bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -74,8 +111,6 @@
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.js"></script>
 
   <script>
     var config = {
@@ -93,9 +128,9 @@
     const db = firebase.firestore();
 
     // mengambil hasil yang disimpan pada sessionstorage
-    const length = sessionStorage.getItem("length-4");
-    const correct = sessionStorage.getItem("correct-4");
-    const wrong = sessionStorage.getItem("wrong-4");
+    const length = sessionStorage.getItem("length-2");
+    const correct = sessionStorage.getItem("correct-2");
+    const wrong = sessionStorage.getItem("wrong-2");
 
     const NISN = sessionStorage.getItem('NISN');
     const nama = sessionStorage.getItem('nama');
@@ -124,10 +159,10 @@
 
     // Add Data
     function addData() {
-      db.collection("evaluasi").where("nisn", "==", NISN).get()
+      db.collection("kuis-2").where("nisn", "==", NISN).get()
         .then((querySnapshot) => {
           if (querySnapshot.empty) {
-            db.collection('evaluasi').add({
+            db.collection('kuis-2').add({
               nisn: NISN,
               nama: nama,
               kelas: kelas,
@@ -141,7 +176,7 @@
             })
           } else {
             querySnapshot.forEach((doc) => {
-              const docRef = db.collection('evaluasi').doc(doc.id);
+              const docRef = db.collection('kuis-2').doc(doc.id);
               docRef.set({
                   nisn: NISN,
                   nama: nama,
@@ -163,13 +198,13 @@
     }
 
     function removeStorage() {
-      sessionStorage.removeItem('length-4');
-      sessionStorage.removeItem('correct-4');
-      sessionStorage.removeItem('wrong-4');
+      sessionStorage.removeItem('length-2');
+      sessionStorage.removeItem('correct-2');
+      sessionStorage.removeItem('wrong-2');
       sessionStorage.removeItem('nama');
       sessionStorage.removeItem('kelas');
-      sessionStorage.removeItem('timer-4');
-      sessionStorage.removeItem('jawaban-4');
+      sessionStorage.removeItem('timer-2');
+      sessionStorage.removeItem('jawaban-2');
     }
 
     if (!sessionStorage.getItem('nama')) {
@@ -211,12 +246,15 @@
       window.location = './';
     });
 
-    next.addEventListener("click", (e) => {
-      e.preventDefault();
-      removeStorage();
-      const href = next.getAttribute('href');
-      window.location = href;
-    });
+    next.forEach((value, index) => {
+      next[index].addEventListener("click", (e) => {
+        e.preventDefault();
+        removeStorage();
+        localStorage.setItem('sub-3-0', '1');
+        const href = next[index].getAttribute('href');
+        window.location = href;
+      });
+    })
   </script>
 </body>
 

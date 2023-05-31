@@ -284,7 +284,6 @@
                         );
                     }
                 });
-                // sessionStorage.setItem('')
             }
 
             currentSlide = n;
@@ -408,7 +407,7 @@
             }
         }
 
-        if (!sessionStorage.getItem("nama") || !sessionStorage.getItem("kelas")) {
+        if (!sessionStorage.getItem("NISN") || !sessionStorage.getItem("pw")) {
             sessionStorage.removeItem("soalSession-4");
             window.location = "./";
         }

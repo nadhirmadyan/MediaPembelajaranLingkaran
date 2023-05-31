@@ -5,16 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Mengambil semua hasil inputan jawaban yang ada pada class answer
     let answerUser = document.querySelectorAll(".answer");
     const answer = [
-        "sama",
-        "jari-jari",
-        "diameter",
-        "tali busur",
-        "busur",
-        "apotema",
-        "juring",
-        "tembereng",
         "titik pusat",
-        "8",
+        "tali busur",
+        "gj",
     ];
     const message = document.querySelector("#message");
 
@@ -32,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // proses setelah cek jawaban, untuk menampilkan pesan
-        if (wrong === 10) {
+        if (wrong === 2) {
             message.innerHTML = `
         <div class="card bg-danger">
             <div class="card-body">

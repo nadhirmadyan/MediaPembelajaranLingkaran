@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/Asset/CSS/Course.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.css" />
 
-    <title>Latihan</title>
+    <title>Kuis 2 Lingkaran</title>
     <style>
         .slide {
             position: absolute;
@@ -44,7 +44,7 @@
         }
 
         .question {
-            font-size: 1em;
+            font-size: 16px;
             margin-bottom: 10px;
         }
 
@@ -100,7 +100,7 @@
                         <hr>
                         <div class="btn-action text-center">
                             <button id="back" class="btn btn-md btn-secondary shadow">
-                                Kembali
+                                Sebelumnya
                             </button>
                             <button id="next" class="btn btn-md btn-success shadow">
                                 Selanjutnya
@@ -117,6 +117,7 @@
                     <div class="card-body text-center">
                         <span class="number-btn"></span>
                         <hr>
+
                     </div>
                 </div>
             </div>
@@ -128,7 +129,7 @@
     <script src="/Asset/Bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.js"></script>
-    <script src="/pages/materi-1/11.kuis1/soal.js"></script>
+    <script src="/pages/materi-2/5.kuis2/soal.js"></script>
     <script>
         MathJax = {
             tex: {
@@ -150,7 +151,7 @@
             return 0.5 - Math.random();
         });
 
-        let soalSession = JSON.parse(sessionStorage.getItem("soalSession-1"));
+        let soalSession = JSON.parse(sessionStorage.getItem("soalSession-2"));
 
         if (soalSession) {
             var sliceQuestion;
@@ -161,7 +162,7 @@
             sliceQuestion = randomQuestion.slice(0, 10);
             // console.log(sliceQuestion);
             sessionStorage.setItem(
-                "soalSession-1",
+                "soalSession-2",
                 JSON.stringify(randomQuestion.slice(0, 10))
             );
         }
@@ -177,7 +178,7 @@
                     answers.push(
                         `
                     <label>
-                        <input type="radio" name="question-satu${questionNumber}" value="${letter}" data="${currentNumber}" class="answer">
+                        <input type="radio" name="question-dua${questionNumber}" value="${letter}" data="${currentNumber}" class="answer">
                         <span>${letter}. ${currentQuestion.answers[letter]}<span>
                     </label>
                     `
@@ -186,11 +187,14 @@
 
                 output.push(
                     `
-                <div class="slide">
-                    <p class="question">${currentNumber}. ${
-                currentQuestion.question
-                    }</p>
-                    <div class="answers">${answers.join("")}</div>
+                    <div class="slide">
+                        <div class="question">
+                            ${currentNumber}. ${currentQuestion.question}
+                        </div>
+
+                        <div class="answers">
+                            ${answers.join("")}
+                        </div>
                 </div>
                 `
                 );
@@ -207,7 +211,7 @@
             li.innerHTML = `
             <button style="width:40px;" id="numbBtn${i}" type="button" class="btn btn-sm btn-outline-info mx-1 mt-1 pl-1 pr-1" onclick="paginationSlide(${i})">${
             i + 1
-        }</button>`;
+            }</button>`;
             numberBtn.appendChild(li);
         }
 
@@ -219,7 +223,7 @@
             sliceQuestion.forEach((currentQuestion, questionNumber) => {
                 const answerContainer = answerContainers[questionNumber];
 
-                const selector = `input[name=question-satu${questionNumber}]:checked`;
+                const selector = `input[name=question-dua${questionNumber}]:checked`;
                 const userAnswer = (answerContainer.querySelector(selector) || {})
                     .value;
 
@@ -231,10 +235,10 @@
                     wrong++;
                 }
 
-                sessionStorage.setItem("length-1", sliceQuestion.length);
-                sessionStorage.setItem("wrong-1", wrong);
-                sessionStorage.setItem("correct-1", correct);
-                sessionStorage.removeItem("soalSession-1");
+                sessionStorage.setItem("length-2", sliceQuestion.length);
+                sessionStorage.setItem("wrong-2", wrong);
+                sessionStorage.setItem("correct-2", correct);
+                sessionStorage.removeItem("soalSession-2");
                 for (let i = 0; i < rand_q.length; i++) {
                     for (let j = 0; j < rand_q.length; j++) {
                         if (i == rand_q[j]) {
@@ -244,11 +248,11 @@
                     }
                 }
                 sessionStorage.setItem(
-                    "jawaban-1",
+                    "jawaban-2",
                     JSON.stringify(arrayJawaban_urut)
                 );
                 for (i = 0; i <= 9; i++) {
-                    sessionStorage.removeItem(`question-satu${i}`);
+                    sessionStorage.removeItem(`question-dua${i}`);
                 }
                 location.href = "./result.html";
             });
@@ -265,7 +269,7 @@
             const answerContainers = questionContainer.querySelectorAll(".answers");
             const answerContainer = answerContainers[currentSlide];
 
-            const selector = `input[name=question-satu${currentSlide}]:checked`;
+            const selector = `input[name=question-dua${currentSlide}]:checked`;
             const userAnswer = (answerContainer.querySelector(selector) || {})
                 .value;
 
@@ -277,7 +281,7 @@
                     .getElementById(`numbBtn${currentSlide}`)
                     .classList.add("btn-success");
                 var elements = document.querySelectorAll(
-                    `input[name='question-satu${currentSlide}']`
+                    `input[name='question-dua${currentSlide}']`
                 );
                 elements.forEach((element) => {
                     if (element.value == userAnswer) {
@@ -349,7 +353,7 @@
         });
 
         // Timer
-        var timer = parseInt(sessionStorage.getItem("timer-1"));
+        var timer = parseInt(sessionStorage.getItem("timer-2"));
         var end = timer + 1000 * 60 * 60;
         var countDownDate = end;
 
@@ -387,7 +391,7 @@
         if (soalSession) {
             var sessCheckJawaban = [];
             for (i = 0; i <= 9; i++) {
-                sessCheckJawaban[i] = sessionStorage.getItem(`question-satu${i}`);
+                sessCheckJawaban[i] = sessionStorage.getItem(`question-dua${i}`);
                 if (sessCheckJawaban[i] != null) {
                     const splitCheck = sessCheckJawaban[i].split(",");
                     console.log(splitCheck);
@@ -412,8 +416,8 @@
             }
         }
 
-        if (!sessionStorage.getItem("nama") || !sessionStorage.getItem("kelas")) {
-            sessionStorage.removeItem("soalSession-1");
+        if (!sessionStorage.getItem("NISN") || !sessionStorage.getItem("pw")) {
+            sessionStorage.removeItem("soalSession-2");
             window.location = "./";
         }
     </script>

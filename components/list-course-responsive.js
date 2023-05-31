@@ -82,15 +82,9 @@ document.querySelector("#nav-bottom").innerHTML = `
                         )}">Juring</a>
                     </div>
 
-                    <div class="list-course-menu mb-3">
-                        <a href="/pages/materi-1/10.latihan/index.html" class="list-course-child isDisabled sub-1-9 ${getChapChild(
-                        "materi-1/10.latihan/index.html"
-                        )}">Latihan 1</a>
-                    </div>
-
                     <div class="list-course-menu">
-                        <a href="/pages/materi-1/11.kuis1/index.html" class="list-course-child isDisabled sub-1-10 ${getChapChild(
-                        "materi-1/11.kuis1/index.html"
+                        <a href="/pages/materi-1/10.kuis1/index.html" class="list-course-child isDisabled sub-1-9 ${getChapChild(
+                        "materi-1/10.kuis1/index.html"
                         )}">Kuis 1</a>
                     </div>
                 </div>
@@ -128,15 +122,9 @@ document.querySelector("#nav-bottom").innerHTML = `
                     )}">Menemukan Rumus Keliling Lingkaran</a>
                 </div>
 
-                <div class="list-course-menu mb-3">
-                    <a href="/pages/materi-2/4.latihan/index.html" class="list-course-child isDisabled sub-2-3 ${getChapChild(
-                    "materi-2/4.latihan/index.html"
-                    )}">Latihan 2</a>
-                </div>
-
                 <div class="list-course-menu">
-                    <a href="/pages/materi-2/5.kuis2/index.html" class="list-course-child isDisabled sub-2-4 ${getChapChild(
-                    "materi-2/5.kuis2/index.html"
+                    <a href="/pages/materi-2/4.kuis2/index.html" class="list-course-child isDisabled sub-2-3 ${getChapChild(
+                    "materi-2/4.kuis2/index.html"
                     )}">Kuis 2</a>
                 </div>
             </div>
@@ -167,15 +155,9 @@ document.querySelector("#nav-bottom").innerHTML = `
                     )}">Menentukan Rumus Luas Lingkaran</a>
                 </div>
 
-                <div class="list-course-menu mb-3">
-                    <a href="/pages/materi-3/3.latihan/index.html" class="list-course-child isDisabled sub-3-2 ${getChapChild(
-                    "materi-3/3.latihan/index.html"
-                    )}">Latihan 3</a>
-                </div>
-
                 <div class="list-course-menu">
-                    <a href="/pages/materi-3/4.kuis3/index.html" class="list-course-child isDisabled sub-3-3 ${getChapChild(
-                    "materi-3/4.kuis3/index.html"
+                    <a href="/pages/materi-3/4.kuis3/index.html" class="list-course-child isDisabled sub-3-2 ${getChapChild(
+                    "materi-3/3.kuis3/index.html"
                     )}">Kuis 3</a>
                 </div>
             </div>

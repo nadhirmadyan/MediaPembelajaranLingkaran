@@ -65,24 +65,23 @@
                     <div class="card-body">
                         <h4>Evaluasi</h4>
                         <hr>
-                        <div class="form-group mt-3">
-                            <label for="">Nama</label>
-                            <input type="text" id="nama" class="form-control" placeholder="Masukkan Nama ....."
-                                autocomplete="off" style="border-color: black;">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Kelas</label>
-                            <select id="kelas" class="form-select" style="border-color: black;">
-                                <option value="">Pilih Kelas</option>
-                                <option value="6 A">6 A</option>
-                                <option value="6 B">6 B</option>
-                            </select>
-                        </div>
-                        <div class="form-group my-2">
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-primary" id="masuk" type="button">Mulai</button>
+                        <form id="form-login">
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label for="NISN" class="form-label">NISN</label>
+                                    <input type="text" id="NISN" placeholder="NISN" class="form-control"
+                                        autocomplete="off" style="border-color: black;" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Password" class="form-label">Password</label>
+                                    <input type="password" id="password" placeholder="Password" class="form-control"
+                                        autocomplete="off" style="border-color: black;" required>
+                                </div>
+                                <button type="submit" class="btn btn-md btn-primary py-1 px-4">
+                                    Mulai
+                                </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -99,33 +98,72 @@
 
     <!-- Memanggil Bootstrap JS -->
     <script src="/Asset/Bootstrap/js/bootstrap.bundle.min.js"></script>
+
     <!-- Memanggil file Component JS -->
     <script src="/components/navbar.js"></script>
 
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const masuk = document.getElementById("masuk");
-            const nama = document.getElementById("nama");
-            const kelas = document.getElementById("kelas");
 
-            masuk.addEventListener("click", () => {
-                if (nama.value === "" && kelas.value === "") {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Nama dan Kelas tidak boleh kosong!',
-                    });
-                } else {
-                    var now = Date.now();
-                    sessionStorage.setItem('nama', nama.value);
-                    sessionStorage.setItem('kelas', kelas.value);
-                    sessionStorage.setItem("timer-4", now);
-                    location.href = './quiz.html';
-                }
-            });
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+
+    <script>
+        var config = {
+            apiKey: "AIzaSyCQR3YYkVcbF_dL7g7boHNzhVmOLsLMEjo",
+            authDomain: "media-pembelajaran-lingkaran.firebaseapp.com",
+            projectId: "media-pembelajaran-lingkaran",
+            storageBucket: "media-pembelajaran-lingkaran.appspot.com",
+            messagingSenderId: "380885591249",
+            appId: "1:380885591249:web:3926634295d0f34a5fd1f0"
+        };
+        firebase.initializeApp(config);
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // update firestore settings
+        db.settings({
+            timestampsInSnapshots: true
         });
+
+        const formLogin = document.querySelector('#form-login');
+        const submit = document.querySelector('#start')
+
+        formLogin.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const NISN = Number(document.querySelector("#NISN").value);
+            const pw = document.querySelector("#password").value;
+            let kelas, nama;
+
+            db.collection('dataSiswa').where('NISN', '==', NISN)
+                .where('password', '==', pw)
+                .get()
+                .then((querySnapshot) => {
+                    if (!querySnapshot.empty) {
+                        querySnapshot.forEach((doc) => {
+                            // doc.data() is never undefined for query doc snapshots
+                            nama = doc.data().nama;
+                            kelas = doc.data().kelas;
+                            return nama, kelas;
+                        });
+                        console.log(nama)
+                        console.log(kelas)
+
+                        var now = Date.now();
+                        sessionStorage.setItem("NISN", NISN);
+                        sessionStorage.setItem("nama", nama);
+                        sessionStorage.setItem("kelas", kelas);
+                        sessionStorage.setItem("pw", pw);
+                        sessionStorage.setItem("timer-4", now);
+                        location.href = "./quiz.html";
+                    } else {
+                        alert('NISN dan Password salah')
+                    }
+                })
+
+        })
     </script>
     <script src="/components/list-course.js"></script>
     <script src="/components/list-course-responsive.js"></script>
