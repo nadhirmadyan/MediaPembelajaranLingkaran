@@ -30,13 +30,14 @@
         <button class="btn btn-primary" id="c3">Kuis 3</button>
         <button class="btn btn-primary" id="c4">Evaluasi</button>
       </div>
+
       <div class="tabcontent" id="content1">
         <h3>Kuis 1</h3>
         <button id="btnExport" class="btn btn-sm btn-success mb-4" onclick="exportReportToExcel1('xlsx')">Export
           Excel</button>
-        <table class="table table-striped" id="table-1">
+        <table class="table table-bordered table-hover" id="table-1" style="border-color: black;">
           <thead>
-            <tr>
+            <tr style="text-align: center; color: white; background-color: #1a1a1a;">
               <th>No</th>
               <th>NISN</th>
               <th>Nama</th>
@@ -50,13 +51,14 @@
           </tbody>
         </table>
       </div>
+
       <div class="tabcontent" id="content2">
         <h3>Kuis 2</h3>
         <button id="btnExport" class="btn btn-sm btn-success mb-4" onclick="exportReportToExcel2('xlsx')">Export
           Excel</button>
-        <table class="table table-striped" id="table-2">
+        <table class="table table-bordered table-hover" id="table-2" style="border-color: black;">
           <thead>
-            <tr>
+            <tr style="text-align: center; color: white; background-color: #1a1a1a;">
               <th>No</th>
               <th>NISN</th>
               <th>Nama</th>
@@ -74,9 +76,9 @@
         <h3>Kuis 3</h3>
         <button id="btnExport" class="btn btn-sm btn-success mb-4" onclick="exportReportToExcel3('xlsx')">Export
           Excel</button>
-        <table class="table table-striped" id="table-3">
+        <table class="table table-bordered table-hover" id="table-3" style="border-color: black;">
           <thead>
-            <tr>
+            <tr style="text-align: center; color: white; background-color: #1a1a1a;">
               <th>No</th>
               <th>NISN</th>
               <th>Nama</th>
@@ -94,9 +96,9 @@
         <h3>Evaluasi</h3>
         <button id="btnExport" class="btn btn-sm btn-success mb-4" onclick="exportReportToExcel4('xlsx')">Export
           Excel</button>
-        <table class="table table-striped" id="table-4">
+        <table class="table table-bordered table-hover" id="table-4" style="border-color: black;">
           <thead>
-            <tr>
+            <tr style="text-align: center; color: white; background-color: #1a1a1a;">
               <th>No</th>
               <th>NISN</th>
               <th>Nama</th>
@@ -169,15 +171,15 @@
       const querySnapshot = await getDocs(collection(db, data));
       let i = 1;
       querySnapshot.forEach((doc) => {
-        let ket = doc.data().nilai >= kkm ? 'Lulus' : 'Tidak Lulus';
+        let ket = doc.data().nilai >= kkm ? '<b><span class="text-success">Lulus</span></b>' : '<b><span class="text-danger">Tidak Lulus</span></b>';
         let tr = document.createElement('tr');
         tr.innerHTML = `
-          <td>${i++}</td>
-          <td>${doc.data().nisn}</td>
-          <td>${doc.data().nama}</td>
-          <td>${doc.data().kelas}</td>
-          <td>${doc.data().nilai}</td>
-          <td>${ket}</td>
+          <td style="text-align: center;">${i++}</td>
+          <td style="text-align: center;">${doc.data().nisn}</td>
+          <td style="text-align: center;">${doc.data().nama}</td>
+          <td style="text-align: center;">${doc.data().kelas}</td>
+          <td style="text-align: center;">${doc.data().nilai}</td>
+          <td style="text-align: center;">${ket}</td>
         `;
         temp.appendChild(tr);
       });

@@ -3,9 +3,9 @@
 :root {
     --header-height: 3rem;
     --nav-width: 68px;
-    --first-color: #2387d9;
-    --first-color-light: #a5c4d9;
-    --white-color: #F7F6FB;
+    --first-color: #AD58B2;
+    --first-color-light: white;
+    --white-color: black;
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 1rem;
     --z-fixed: 100;
@@ -121,7 +121,23 @@ a {
 #hps-siswa, #edit-siswa{
     padding: 8px;
     font-size: 12px;
+}
 
+#btnTambah{
+    float: left;
+}
+
+#btnEdit{
+    float: left;
+}
+
+.btn-dark{
+    float: right;
+}
+
+.btn-dark:hover{
+    background-color: white; 
+    color: black;
 }
 
 @media screen and (min-width: 768px) {

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon">
+    <title>Halaman Guru</title>
+    <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Asset/CSS/style-teacher.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.css" />
+</head>
+
+<body id="body-pd" class="body-pd">
+
+    <div class="l-navbar show" id="nav-bar">
+        <nav id="nav">
+
+        </nav>
+    </div>
+
+    <div style="padding-bottom: 5px;">
+        <h2>Tambah Data Siswa</h2>
+    </div>
+    <!--Container Main start-->
+    <div class="height-100">
+        <form id="tambah-siswa">
+            <div class="mb-3">
+                <label for="NISN" class="form-label fs-6">NISN</label>
+                <input type="number" id="NISN" placeholder="NISN" class="form-control" autocomplete="off"
+                    style="border-color: black;" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="nama" class="form-label fs-6">Nama</label>
+                <input type="text" id="nama" placeholder="Nama" class="form-control" autocomplete="off"
+                    style="border-color: black;" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="kelas" class="form-label fs-6">Kelas</label>
+
+                <select id="kelas" class="form-select" style="border-color: black;">
+                    <option value="">Pilih Kelas</option>
+                    <option value="6 A">6 A</option>
+                    <option value="6 B">6 B</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label fs-6">Password</label>
+                <input type="password" id="password" placeholder="Password" class="form-control" autocomplete="off"
+                    style="border-color: black;" required>
+            </div>
+            <button type="submit" class="btn btn-dark" id="btnTambah">Tambah Data
+                Siswa</button>
+            <a href="/guru/pages/index.html" style="margin-left: 40px; margin-bottom: 20px;" type="button"
+                class="btn btn-danger">Cancel</a>
+        </form>
+    </div>
+
+    <script src="/Asset/Bootstrap/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="/Asset/JS/script-teacher.js"></script>
+    <script src="/Guru/components/sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCQR3YYkVcbF_dL7g7boHNzhVmOLsLMEjo",
+            authDomain: "media-pembelajaran-lingkaran.firebaseapp.com",
+            projectId: "media-pembelajaran-lingkaran",
+            storageBucket: "media-pembelajaran-lingkaran.appspot.com",
+            messagingSenderId: "380885591249",
+            appId: "1:380885591249:web:3926634295d0f34a5fd1f0"
+        };
+        firebase.initializeApp(config);
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // update firestore settings
+        db.settings({
+            timestampsInSnapshots: true
+        });
+    </script>
+
+    <!--Mengambil nilai data siswa-->
+    <script type="module">
+
+        function addData() {
+        db.collection('dataSiswa').add({
+            nisn:(formTmbhSiswa['NISN'].value.toString()),
+            nama:formTmbhSiswa['nama'].value,
+            kelas:formTmbhSiswa['kelas'].value,
+            password:formTmbhSiswa['password'].value
+
+        }).then(()=>{
+            formTmbhSiswa.reset()
+            console.log('data berhasil disimpan')
+        })
+    }
+
+    function pindah() {
+        window.location = './index.html';
+    }
+        //Menambah data siswa
+    const formTmbhSiswa = document.querySelector('#tambah-siswa');
+    formTmbhSiswa.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        addData();
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data berhasil ditambah!',
+            showConfirmButton: true,
+
+        }).then((result) => {
+            if(result.value) pindah();
+        });
+    })
+    </script>
+</body>
+
+</html>

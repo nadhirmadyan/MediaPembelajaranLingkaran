@@ -333,7 +333,7 @@
 
         submitButton.addEventListener("click", function () {
             Swal.fire({
-                title: 'Apa kamu yakin mengakhiri menjawab?',
+                title: 'Apa kamu yakin ingin mengakhiri menjawab?',
                 text: "",
                 icon: 'question',
                 showCancelButton: true,
@@ -412,7 +412,7 @@
             }
         }
 
-        if (!sessionStorage.getItem("NISN") || !sessionStorage.getItem("pw")) {
+        if (!sessionStorage.getItem("nisn") || !sessionStorage.getItem("pw")) {
             sessionStorage.removeItem("soalSession-1");
             window.location = "./";
         }

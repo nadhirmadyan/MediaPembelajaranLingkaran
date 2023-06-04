@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/Asset/Image/Logo.png" type="image/x-icon">
+    <title>Halaman Guru</title>
+    <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Asset/CSS/style-teacher.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.css" />
+</head>
+
+<body id="body-pd" class="body-pd">
+
+    <div class="l-navbar show" id="nav-bar">
+        <nav id="nav">
+
+        </nav>
+    </div>
+
+    <div style="padding-bottom: 5px; margin-left: 7px;">
+        <h2>Edit Data Siswa</h2>
+    </div>
+
+    <!--Container Main start-->
+    <div class="height-100">
+        <form id="edit-siswa">
+            <div class="mb-3">
+                <label for="NISN" class="form-label fs-6">NISN</label>
+                <input type="number" id="NISN" placeholder="NISN" class="form-control" autocomplete="off"
+                    style="border-color: black;" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="nama" class="form-label fs-6">Nama</label>
+                <input type="text" id="nama" placeholder="Nama" class="form-control" autocomplete="off"
+                    style="border-color: black;" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="kelas" class="form-label fs-6">Kelas</label>
+
+                <select id="kelas" class="form-select" style="border-color: black;">
+                    <option value="">Pilih Kelas</option>
+                    <option value="6 A">6 A</option>
+                    <option value="6 B">6 B</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label fs-6">Password</label>
+                <input type="password" id="password" placeholder="Password" class="form-control" autocomplete="off"
+                    style="border-color: black;" required>
+            </div>
+
+            <button type="submit" class="btn btn-dark" id="btnEdit">Simpan Data Siswa</button>
+            <a href="/guru/pages/index.html" style="margin-left: 40px; margin-bottom: 20px;" type="button"
+                class="btn btn-danger">Cancel</a>
+        </form>
+    </div>
+
+    <script src="/Asset/Bootstrap/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.js"></script>
+    <script src="/Asset/JS/script-teacher.js"></script>
+    <script src="/Guru/components/sidebar.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCQR3YYkVcbF_dL7g7boHNzhVmOLsLMEjo",
+        authDomain: "media-pembelajaran-lingkaran.firebaseapp.com",
+        projectId: "media-pembelajaran-lingkaran",
+        storageBucket: "media-pembelajaran-lingkaran.appspot.com",
+        messagingSenderId: "380885591249",
+        appId: "1:380885591249:web:3926634295d0f34a5fd1f0"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    import { getFirestore, doc, collection, getDocs, getDoc, query, where, addDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+
+    const db = getFirestore(app);
+
+    let urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    const formEditSiswa = document.querySelector('#edit-siswa');
+
+    async function getData(id) {
+        let nisn = null
+        let nama = null;
+        let kelas = null;
+        let password = null;
+        const q =  doc(db, "dataSiswa", id);
+
+        const docSnap = await getDoc(q);
+        nisn = docSnap.data().nisn;
+        nama = docSnap.data().nama;
+        kelas = docSnap.data().kelas;
+        password = docSnap.data().password;
+        return [nisn, nama, kelas, password];
+    }
+
+    async function updateData(id) {
+        const dataSiswa = doc(db, "dataSiswa", id);
+        await updateDoc(dataSiswa, {
+        nisn: (formEditSiswa['NISN'].value.toString()),
+        nama: formEditSiswa['nama'].value,
+        kelas: formEditSiswa['kelas'].value,
+        password: formEditSiswa['password'].value
+        }).then(()=>{
+            console.log('data berhasil disimpan')
+        });
+    }
+
+    function pindah() {
+        window.location = './index.html';
+    }
+
+    const data = await getData(id);
+    console.log(data);
+
+    formEditSiswa['NISN'].value = data[0];
+    formEditSiswa['nama'].value = data[1];
+    formEditSiswa['kelas'].value = data[2];
+    formEditSiswa['password'].value = data[3];
+
+    formEditSiswa.addEventListener('submit', (e) => {
+        e.preventDefault();
+        updateData(id);
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data berhasil diedit!',
+            showConfirmButton: true,
+            
+        }).then((result) => {
+            if(result.value) pindah();
+        });
+
+    });
+    </script>
+</body>
+
+</html>

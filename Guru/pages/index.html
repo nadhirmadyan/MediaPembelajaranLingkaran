@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/Asset/Bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/Asset/CSS/style-teacher.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.css" />
 </head>
 
 <body id="body-pd" class="body-pd">
@@ -28,43 +29,14 @@
 
   <div class="tabcontent" id="content3">
     <h3 style="font-weight: bold; ">Data Siswa
-      <button style="margin-left: 40px;" type="button" class="btn btn-dark" data-toggle="modal"
-        data-target="#ModalSiswa">Tambah Data</button>
+      <a href="/guru/pages/tambah-data.html" style="margin-left: 40px; margin-bottom: 20px;" type="button"
+        class="btn btn-dark">Tambah Data</a>
     </h3>
 
-    <!-- Modal -->
-    <div class="modal fade" id="ModalSiswa" tabindex="-1" aria-labelledby="exampleModalLabel">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Tambah Siswa</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <form id="tambah-siswa">
-            <div class="modal-body">
-              <input type="text" id="NISN" placeholder="NISN" class="form-control" autocomplete="off"
-                style="border-color: black;" required>
-              <input type="text" id="nama" placeholder="Nama" class="form-control" autocomplete="off"
-                style="border-color: black;" required>
-              <input type="text" id="kelas" placeholder="Kelas" class="form-control" autocomplete="off"
-                style="border-color: black;" required>
-              <input type="password" id="password" placeholder="Password" class="form-control" autocomplete="off"
-                style="border-color: black;" required>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary" id="btnTambah">Tambah Siswa</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
     <!--Tabel Data Siswa-->
-    <table class="table table-striped" id="table-3">
+    <table class="table table-bordered table-hover" id="table-3" style="border-color: black;">
       <thead>
-        <tr>
+        <tr style="text-align: center; color: white; background-color: #1a1a1a;">
           <th>NO</th>
           <th>NISN</th>
           <th>Nama</th>
@@ -77,23 +49,15 @@
       </tbody>
     </table>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-
     <script src="/Asset/Bootstrap/js/bootstrap.bundle.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="/Asset/JS/script-teacher.js"></script>
     <script src="/Guru/components/sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+
 
     <script>
       // Initialize Firebase
@@ -124,23 +88,6 @@
     db.collection('dataSiswa').onSnapshot(snapshot=>{
       dataSiswa(snapshot.docs)
     })
-    
-    //Menambah data siswa
-    const formTmbhSiswa = document.querySelector('#tambah-siswa');
-    formTmbhSiswa.addEventListener('submit',(e)=>{
-      e.preventDefault();
-      db.collection('dataSiswa').add({
-        NISN:formTmbhSiswa['NISN'].value,
-        nama:formTmbhSiswa['nama'].value,
-        kelas:formTmbhSiswa['kelas'].value,
-        password:formTmbhSiswa['password'].value
-
-      }).then(()=>{
-        formTmbhSiswa.reset()
-        ModalSiswa.hidden()
-        console.log('data berhasil disimpan')
-      })
-    })
 
     const dataSiswa = (data)=>{
       let html=''
@@ -150,37 +97,57 @@
                 
         const listNilai = doc.data()
         const td = `
-        <tr>
+        <tr style="text-align: center;">
           <td>${no}</td>
-          <td>${listNilai.NISN}</td>
+          <td>${listNilai.nisn}</td>
           <td>${listNilai.nama}</td>
           <td>${listNilai.kelas}</td>
           <td>${listNilai.password}</td>
           <td>
+            <a href='./edit-data.html?id=${doc.id}' id="edit-siswa" class="btn btn-primary">Edit</a>
             <button type="button" id="hps-siswa" class="btn btn-danger" data-id='${doc.id}'>Hapus</button>
-            <button type="button" id="edit-siswa" class="btn btn-primary">Edit</button></td>
           </td>
         </tr>
         `
         html+=td;
         no++;
       })
+
       tblSiswa.innerHTML=html;
       let deleteSiswa = document.querySelectorAll('#hps-siswa');
+
+      
+
       deleteSiswa.forEach(btn=>{
-        btn.addEventListener('click',(e)=>{
-        const id = e.target.getAttribute('data-id');
-        console.log(id)
-        db.collection('dataSiswa').doc(id).delete()
-        .then(()=>{
-        alert('data berhasil dihapus')
-        })
-        .catch(error=>{
-        console.log(error)
-        })
-        })
+
+        btn.addEventListener("click", function(e) {
+          Swal.fire({
+            title: "Apa Anda yakin ingin menghapus?",
+            text: "",
+            icon: "question",
+            showCancelButton: true,
+            cancelButtonColor: "#d33",
+            confirmButtonColor: "#3085d6",
+            cancelButtonText: "Batal",
+            confirmButtonText: "Iya",
+
+          }).then((result) => {
+            console.log(result.value);
+            if (result.value) {
+              const id = e.target.getAttribute('data-id');
+              console.log(id)
+              db.collection('dataSiswa').doc(id).delete()
+              Swal.fire(
+                'Berhasil',
+                'Data berhasil dihapus',
+                'success'
+              )
+            }
+          });
+        });
       })
     }
+    
   </script>
   </div>
 </body>

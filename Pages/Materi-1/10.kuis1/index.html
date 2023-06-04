@@ -75,8 +75,8 @@
                         <div class="col-lg-7">
                             <div class="mb-3">
                                 <label for="NISN" class="form-label">NISN</label>
-                                <input type="text" id="NISN" placeholder="NISN" class="form-control" autocomplete="off"
-                                    style="border-color: black;" required>
+                                <input type="number" id="NISN" placeholder="NISN" class="form-control"
+                                    autocomplete="off" style="border-color: black;" required>
                             </div>
                             <div class="mb-3">
                                 <label for="Password" class="form-label">Password</label>
@@ -151,11 +151,11 @@
 
         formLogin.addEventListener('submit', (e) => {
             e.preventDefault()
-            const NISN = Number(document.querySelector("#NISN").value);
+            const nisn = (document.querySelector("#NISN").value.toString());
             const pw = document.querySelector("#password").value;
             let kelas, nama;
 
-            db.collection('dataSiswa').where('NISN', '==', NISN)
+            db.collection('dataSiswa').where('nisn', '==', nisn)
                 .where('password', '==', pw)
                 .get()
                 .then((querySnapshot) => {
@@ -170,10 +170,9 @@
                         console.log(kelas)
 
                         var now = Date.now();
-                        sessionStorage.setItem("NISN", NISN);
+                        sessionStorage.setItem("nisn", nisn);
                         sessionStorage.setItem("nama", nama);
                         sessionStorage.setItem("kelas", kelas);
-                        sessionStorage.setItem("pw", pw);
                         sessionStorage.setItem("timer-1", now);
                         location.href = "./quiz.html";
                     } else {

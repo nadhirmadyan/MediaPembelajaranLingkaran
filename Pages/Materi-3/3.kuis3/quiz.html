@@ -129,7 +129,7 @@
     <script src="/Asset/Bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.js"></script>
-    <script src="/pages/materi-3/4.kuis3/soal.js"></script>
+    <script src="/pages/materi-3/3.kuis3/soal.js"></script>
     <script>
         MathJax = {
             tex: {
@@ -334,7 +334,7 @@
 
         submitButton.addEventListener("click", function () {
             Swal.fire({
-                title: 'Apa kamu yakin mengakhiri menjawab?',
+                title: 'Apa kamu yakin ingin mengakhiri menjawab?',
                 text: "",
                 icon: 'question',
                 showCancelButton: true,
@@ -413,7 +413,7 @@
             }
         }
 
-        if (!sessionStorage.getItem("NISN") || !sessionStorage.getItem("pw")) {
+        if (!sessionStorage.getItem("nisn") || !sessionStorage.getItem("pw")) {
             sessionStorage.removeItem("soalSession-3");
             window.location = "./";
         }

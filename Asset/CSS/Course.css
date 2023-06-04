@@ -108,7 +108,11 @@ body {
 ul li {
     font-weight: 400;
     font-size: 1.1em;
-    line-height: 2.2em !important;
+    line-height: 1.7em !important;
+}
+
+.course ul li{
+    list-style-type: disc;
 }
 
 .isDisabled {

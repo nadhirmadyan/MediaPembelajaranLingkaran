@@ -9,7 +9,7 @@ const questions = [{
         correctAnswer: "d",
     },
     {
-        question: "Perhatikan gambar lingkaran di bawah ini!<br> <img src='./img/Kuis 2 (Nomor 2).png' class='img-fluid' width='150'><br> Lingkaran tersebut memiliki keliling sebesar $8,8$ $cm$. Panjang diameter pada lingkaran tersebut adalah . . . .",
+        question: "Perhatikan gambar lingkaran di bawah ini!<br> <img src='./img/Kuis 2 (Nomor 2).png' class='img-fluid' width='150'><br> Lingkaran tersebut memiliki keliling sebesar $8.8$ $cm$. Panjang diameter pada lingkaran tersebut adalah . . . .",
         answers: {
             a: "$1.40$ $cm$",
             b: "$2.80$ $cm$",
@@ -19,7 +19,7 @@ const questions = [{
         correctAnswer: "b",
     },
     {
-        question: "<div class='float-end'><img src='./img/Kuis 2 (Nomor 3).jpg' class='img-fluid' width='180'> <div class='src-text' style='width:180px; font-size:0.8em'>Sumber : https://id.pinterest.com/pin/140596819609047742/</div> </div>Sebuah kue ulang tahun memiliki permukaan yang berbentuk seperti lingkaran. Jika keliling kue ulang tahun tersebut adalah $94,2$ $cm$, maka panjang jari – jari dari kue ulang tahun tersebut adalah . . . .",
+        question: "<div class='float-end'><img src='./img/Kuis 2 (Nomor 3).jpg' class='img-fluid' width='180'> <div class='src-text' style='width:180px; font-size:0.8em'>Sumber : https://id.pinterest.com/pin/140596819609047742/</div> </div>Sebuah kue ulang tahun memiliki permukaan yang berbentuk seperti lingkaran. Jika keliling kue ulang tahun tersebut adalah $94.2$ $cm$, maka panjang jari – jari dari kue ulang tahun tersebut adalah . . . .",
         answers: {
             a: "$30$ $cm$",
             b: "$15$ $cm$",
@@ -49,7 +49,7 @@ const questions = [{
         correctAnswer: "a",
     },
     {
-        question: "Sebuah lingkaran diketahui kelilingnya sebesar $169,56$ $cm$, maka panjang diameter dan jari – jari nya adalah . . . .",
+        question: "Sebuah lingkaran diketahui kelilingnya sebesar $169.56$ $cm$, maka panjang diameter dan jari – jari nya adalah . . . .",
         answers: {
             a: "$d$ $=$ $54$ $cm$   $r$ $=$ $27$ $cm$",
             b: "$d$ $=$ $50$ $cm$   $r$ $=$ $25$ $cm$",

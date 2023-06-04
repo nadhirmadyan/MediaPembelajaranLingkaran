@@ -156,7 +156,7 @@ document.querySelector(".list-course").innerHTML = `
             </div>
 
             <div class="list-course">
-            <a href="/pages/materi-3/4.kuis3/index.html" class="list-course-child isDisabled sub-3-2 ${getChapChild(
+            <a href="/pages/materi-3/3.kuis3/index.html" class="list-course-child isDisabled sub-3-2 ${getChapChild(
                 "materi-3/3.kuis3/index.html"
                 )}">Kuis 3</a>
             </div>

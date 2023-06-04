@@ -55,10 +55,10 @@
               Jawaban benar : <b><span id="correct"></b></span>, Jawaban Salah :
               <b><span id="wrong"></span></b>
             </p>
-            <h1>Nilai Anda</h1>
+            <h1>Nilai Kamu</h1>
             <h1 class="score"></h1>
             <h5 class="message"></h5>
-            <a href="/pages/materi-3/4.kuis3/index.html" class="btn btn-sm btn-info text-white retry"
+            <a href="/pages/materi-3/3.kuis3/index.html" class="btn btn-sm btn-info text-white retry"
               id="retry">Kerjakan Ulang Kuis 3</a>
           </div>
 
@@ -129,7 +129,7 @@
     const correct = sessionStorage.getItem("correct-3");
     const wrong = sessionStorage.getItem("wrong-3");
 
-    const NISN = sessionStorage.getItem('NISN');
+    const nisn = sessionStorage.getItem('nisn');
     const nama = sessionStorage.getItem('nama');
     const kelas = sessionStorage.getItem('kelas');
 
@@ -156,11 +156,11 @@
 
     // Add Data
     function addData() {
-      db.collection("kuis-3").where("nisn", "==", NISN).get()
+      db.collection("kuis-3").where("nisn", "==", nisn).get()
         .then((querySnapshot) => {
           if (querySnapshot.empty) {
             db.collection('kuis-3').add({
-              nisn: NISN,
+              nisn: nisn,
               nama: nama,
               kelas: kelas,
               nilai: score,
@@ -175,7 +175,7 @@
             querySnapshot.forEach((doc) => {
               const docRef = db.collection('kuis-3').doc(doc.id);
               docRef.set({
-                  nisn: NISN,
+                  nisn: nisn,
                   nama: nama,
                   kelas: kelas,
                   nilai: score,
@@ -223,15 +223,15 @@
               next[index].classList.add("disabled");
             });
             addData();
-            message.innerText = `Maaf anda belum lulus, nilai minimal yang harus didapatkan adalah ${kkm}.
-            Silahkan kerjakan ulang.`;
+            message.innerText = `Maaf kamu belum lulus, nilai minimal yang harus didapatkan adalah ${kkm}.
+            Silahkan kerjakan ulang kuis.`;
           } else {
             addData();
             next.forEach((value, index) => {
               next[index].classList.remove("disabled");
             });
-            message.innerText = `Selamat anda lulus.
-            Silahkan lanjut kemateri berikutnya.`;
+            message.innerText = `Selamat Kamu Lulus.
+            Silahkan lanjut ke halaman selanjutnya.`;
           }
         })
     }
