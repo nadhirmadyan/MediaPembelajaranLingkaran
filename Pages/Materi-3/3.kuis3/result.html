@@ -154,7 +154,7 @@
     const d = new Date();
     const date = `${d.getDate()}-${d.getMonth()+1}-${d.getFullYear()}`;
 
-    // Add Data
+    //Add Data
     function addData() {
       db.collection("kuis-3").where("nisn", "==", nisn).get()
         .then((querySnapshot) => {
@@ -164,7 +164,8 @@
               nama: nama,
               kelas: kelas,
               nilai: score,
-              tanggal: date
+              tanggal: date,
+              pengerjaan: 1
 
             }).then((docRef) => {
               console.log("Data berhasil dibuat: ", docRef.id);
@@ -174,12 +175,20 @@
           } else {
             querySnapshot.forEach((doc) => {
               const docRef = db.collection('kuis-3').doc(doc.id);
+              const currentPengerjaan = doc.data().pengerjaan || 0;
+              let maxNilai;
+              if (score > doc.data().nilai) {
+                maxNilai = score;
+              } else {
+                maxNilai = doc.data().nilai;
+              }
               docRef.set({
                   nisn: nisn,
                   nama: nama,
                   kelas: kelas,
-                  nilai: score,
-                  tanggal: date
+                  nilai: maxNilai,
+                  tanggal: date,
+                  pengerjaan: currentPengerjaan + 1
                 }, {
                   merge: true
                 })
@@ -193,6 +202,7 @@
           }
         })
     }
+
 
     function removeStorage() {
       sessionStorage.removeItem('length-3');
